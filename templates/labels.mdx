@@ -1,0 +1,141 @@
+---
+title: "Label Templates"
+description: "Templates for carton labels, product labels, and barcodes"
+icon: "tag"
+---
+
+# Label Templates
+
+Templates for shipping and product labels.
+
+---
+
+## Carton Labels
+
+### Standard Carton Label
+
+<Card title="Standard Carton Label (A4)" icon="download" href="#">
+  Download PDF template
+</Card>
+
+| Specification | Value |
+|---------------|-------|
+| Size | A4 (210mm × 297mm) |
+| Orientation | Portrait |
+| Barcode | Code 128 |
+
+### Customer-Specific Labels
+
+| Customer | Template |
+|----------|----------|
+| Boohoo | [Boohoo Labels](/customers/boohoo#download-templates) |
+| Other | Use standard template |
+
+---
+
+## Product Labels (Swing Tickets)
+
+### Standard Swing Ticket
+
+<Card title="Swing Ticket Template" icon="download" href="#">
+  Download PDF template
+</Card>
+
+| Specification | Value |
+|---------------|-------|
+| Size | 50mm × 80mm |
+| Material | 250gsm card |
+| Barcode | EAN-13 |
+
+### Required Elements
+
+| Element | Required |
+|---------|----------|
+| Product description | Yes |
+| Size | Yes |
+| Barcode | Yes |
+| Composition | Yes |
+| Care instructions | Yes |
+| Country of origin | Yes |
+
+---
+
+## Care Labels
+
+### Standard Care Label
+
+<Card title="Care Label Template" icon="download" href="#">
+  Download PDF template
+</Card>
+
+| Specification | Value |
+|---------------|-------|
+| Size | 30mm × 50mm |
+| Material | Satin/Nylon |
+| Content | Care symbols + text |
+
+---
+
+## Barcode Formats
+
+### EAN-13
+
+| Specification | Value |
+|---------------|-------|
+| Digits | 13 |
+| Use | Retail scanning |
+| Height | Minimum 15mm |
+
+### Code 128
+
+| Specification | Value |
+|---------------|-------|
+| Characters | Alphanumeric |
+| Use | Shipping/logistics |
+| Height | Minimum 20mm |
+
+---
+
+## ZPL Templates (Zebra Printers)
+
+For Zebra thermal printers:
+
+<Card title="ZPL Label Templates" icon="download" href="#">
+  Download ZPL files
+</Card>
+
+### Printer Setup
+
+| Setting | Value |
+|---------|-------|
+| Label Width | Per template |
+| Print Speed | 4 inches/sec |
+| Darkness | 20-25 |
+| Media Type | Thermal transfer |
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Barcode won't scan">
+    **Cause:** Print quality or quiet zone issue.
+
+    **Solution:**
+    1. Check printer ribbon
+    2. Ensure 5mm+ quiet zone
+    3. Test print before batch
+  </Accordion>
+
+  <Accordion title="Label size incorrect">
+    **Cause:** Printer scaling.
+
+    **Solution:** Print at 100% scale, no "fit to page".
+  </Accordion>
+
+  <Accordion title="ZPL not printing">
+    **Cause:** Printer not in ZPL mode.
+
+    **Solution:** Check printer is set to ZPL emulation mode.
+  </Accordion>
+</AccordionGroup>

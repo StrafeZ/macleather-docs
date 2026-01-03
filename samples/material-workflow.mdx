@@ -120,3 +120,33 @@ Update material statuses as soon as you receive updates from suppliers. This kee
 <Warning>
 Don't skip statuses. Moving directly from "Ordered" to "Approved" loses valuable tracking information and makes it harder to audit the procurement process.
 </Warning>
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Can't change material status">
+    **Cause:** You may not have permission, or the transition isn't allowed.
+
+    **Solution:** Check the status flow diagram above. Some transitions require intermediate steps.
+  </Accordion>
+
+  <Accordion title="Sample not updating to In House">
+    **Cause:** Not all materials are Approved yet.
+
+    **Solution:** Check each material (Leather, Accessories, Lining). All three must be Approved.
+  </Accordion>
+
+  <Accordion title="Wrong status selected">
+    **Cause:** Clicked wrong option.
+
+    **Solution:** Change to correct status immediately. Add a note explaining the correction.
+  </Accordion>
+
+  <Accordion title="Supplier field not saving">
+    **Cause:** Field validation error.
+
+    **Solution:** Ensure supplier name is entered. Check for special characters.
+  </Accordion>
+</AccordionGroup>

@@ -1,0 +1,78 @@
+---
+title: "Quickstart"
+description: "Get up and running with Mac Leather Dashboard in 5 minutes"
+icon: "rocket"
+---
+
+# Quickstart
+
+Get familiar with the key areas of Mac Leather Dashboard.
+
+---
+
+## Step 1: Navigate the Dashboard
+
+| Section | What It Does | Location |
+|---------|--------------|----------|
+| Samples | Create and track samples | Sidebar → Samples |
+| Production | Manage production orders | Sidebar → Production |
+| Exports | Handle shipments | Sidebar → Exports |
+| Procurement | Purchase orders | Sidebar → Procurement |
+
+---
+
+## Step 2: Understand the Workflow
+
+```mermaid
+flowchart LR
+    A[Sample] --> B[Production Order]
+    B --> C[Job Cards]
+    C --> D[Shipment]
+```
+
+1. **Sample** — Design approved by customer
+2. **Production Order** — Bulk manufacturing order
+3. **Job Cards** — Track production stages
+4. **Shipment** — Export to customer
+
+---
+
+## Step 3: Know Your System Codes
+
+| Code | Meaning | Example |
+|------|---------|---------|
+| SMP | Sample | SMP-2026-042 |
+| PRD | Production Order | PRD-2026-015 |
+| JC | Job Card | JC-2026-00142 |
+| PO | Purchase Order | PO-2026-088 |
+| SHP | Shipment | SHP-2026-007 |
+
+---
+
+## Step 4: Common Tasks
+
+| Task | Where to Go |
+|------|-------------|
+| Create a sample | Samples → + New Sample |
+| Create a PO | Procurement → + New PO |
+| Check production status | Production → Find order |
+| Prepare a shipment | Exports → + New Shipment |
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Samples Overview" icon="flask" href="/samples/overview">
+    Learn about sample management
+  </Card>
+  <Card title="Production Overview" icon="industry" href="/production/overview">
+    Understand production workflow
+  </Card>
+  <Card title="System Codes" icon="hashtag" href="/reference/system-codes">
+    All code formats explained
+  </Card>
+  <Card title="Status Workflows" icon="diagram-project" href="/reference/status-workflows">
+    Complete status reference
+  </Card>
+</CardGroup>
