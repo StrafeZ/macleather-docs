@@ -1,0 +1,346 @@
+---
+title: "Creating Purchase Orders"
+description: "How to create and manage purchase orders in Mac Leather Dashboard"
+icon: "plus"
+---
+
+# Creating Purchase Orders
+
+This guide covers how to create new purchase orders, fill in required fields, and link POs to sample materials.
+
+---
+
+## Two Ways to Create a PO
+
+| Method | When to Use | Link to Sample |
+|--------|-------------|----------------|
+| From Procurement page | Standalone purchases | Manual (optional) |
+| From Sample Material | Material for a specific sample | Automatic |
+
+---
+
+## Method 1: Create from Procurement Page
+
+**Location:** Sidebar → Procurement → **+ New PO**
+
+<Steps>
+  <Step title="Click + New PO">
+    Top right of Procurement page
+  </Step>
+  <Step title="Fill in PO details">
+    Complete the form fields (see below)
+  </Step>
+  <Step title="Add items">
+    Enter material items and quantities
+  </Step>
+  <Step title="Save">
+    PO created in Draft status
+  </Step>
+</Steps>
+
+---
+
+## Method 2: Create from Sample Material
+
+**Location:** Sample Detail → Materials tab → Select material → **Create PO**
+
+<Steps>
+  <Step title="Go to sample">
+    Samples → Click sample row
+  </Step>
+  <Step title="Go to Materials tab">
+    Sample Detail → Materials
+  </Step>
+  <Step title="Find the material">
+    Leather, Accessories, or Lining section
+  </Step>
+  <Step title="Click Create PO">
+    Button on the material card
+  </Step>
+  <Step title="Complete PO form">
+    Some fields pre-filled from material
+  </Step>
+  <Step title="Save">
+    PO created and linked to sample
+  </Step>
+</Steps>
+
+<Info>
+When you create a PO from a sample material:
+- Category auto-fills based on material type
+- Link to sample is created automatically
+- Material status updates when PO is approved
+</Info>
+
+---
+
+## PO Form Fields
+
+### Required Fields
+
+| Field | What to Enter | Example |
+|-------|---------------|---------|
+| Supplier | Select from dropdown | Leather House Ltd |
+| Category | Material category | Leather |
+
+### Optional Fields
+
+| Field | What to Enter | Example |
+|-------|---------------|---------|
+| Notes | Additional information | Urgent order, call before delivery |
+| Expected Date | When materials expected | 2026-02-15 |
+
+### Item Fields
+
+Each item you add requires:
+
+| Field | What to Enter | Example |
+|-------|---------------|---------|
+| Description | What you're ordering | Full grain black leather |
+| Quantity | Amount needed | 50 |
+| Unit | Unit of measure | meters |
+| Unit Rate | Price per unit (PKR) | 1500 |
+
+---
+
+## Selecting a Supplier
+
+<Steps>
+  <Step title="Click Supplier dropdown">
+    In PO form
+  </Step>
+  <Step title="Search or scroll">
+    Type to filter or scroll list
+  </Step>
+  <Step title="Select supplier">
+    Click supplier name
+  </Step>
+</Steps>
+
+<Tip>
+If the supplier doesn't exist, you'll need to add them first. See [Suppliers guide](/procurement/suppliers).
+</Tip>
+
+---
+
+## Selecting a Category
+
+| Category | Use For |
+|----------|---------|
+| Leather | Main leather materials |
+| Accessories | Hardware, zips, buckles, rivets |
+| Lining | Interior fabrics and materials |
+| Mixed | Multiple material types in one PO |
+| Other | Miscellaneous purchases |
+
+<Info>
+When creating from a sample material, category is auto-selected:
+- Leather material → Leather category
+- Accessories material → Accessories category
+- Lining material → Lining category
+</Info>
+
+---
+
+## Adding Items to PO
+
+<Steps>
+  <Step title="Click Add Item">
+    In Items section of PO form
+  </Step>
+  <Step title="Enter description">
+    What you're ordering
+  </Step>
+  <Step title="Enter quantity">
+    Amount needed
+  </Step>
+  <Step title="Select unit">
+    pcs, meters, kg, yards, etc.
+  </Step>
+  <Step title="Enter unit rate">
+    Price per unit in PKR
+  </Step>
+  <Step title="Save item">
+    Item added to PO
+  </Step>
+</Steps>
+
+### Adding Multiple Items
+
+Repeat the Add Item process for each material. Total cost auto-calculates.
+
+**Example PO with multiple items:**
+
+| Description | Qty | Unit | Rate | Total |
+|-------------|-----|------|------|-------|
+| Full grain black leather | 50 | m | 1,500 | 75,000 |
+| YKK metal zip 20cm | 100 | pcs | 45 | 4,500 |
+| Cotton lining black | 30 | m | 200 | 6,000 |
+| **PO Total** | | | | **85,500** |
+
+---
+
+## Uploading Documents
+
+You can attach documents to the PO (quotes, supplier invoices, etc.).
+
+<Steps>
+  <Step title="Go to Documents section">
+    In PO form or PO Detail → Documents tab
+  </Step>
+  <Step title="Click Upload">
+    Opens file selector
+  </Step>
+  <Step title="Select file">
+    Choose PDF, image, or Excel file
+  </Step>
+  <Step title="Confirm upload">
+    Document attached to PO
+  </Step>
+</Steps>
+
+### Supported Formats
+
+| Format | Accepted |
+|--------|----------|
+| PDF | Yes |
+| JPG/JPEG | Yes |
+| PNG | Yes |
+| XLSX/XLS | Yes |
+
+---
+
+## Saving the PO
+
+### Save as Draft
+
+<Steps>
+  <Step title="Fill in form">
+    Complete required fields
+  </Step>
+  <Step title="Click Save">
+    PO saved as Draft
+  </Step>
+</Steps>
+
+**What happens:**
+- PO created with Draft status
+- PO number assigned (PO-YYYY-XXX)
+- You can edit anytime while Draft
+- Not yet sent for approval
+
+### Save and Submit
+
+<Steps>
+  <Step title="Fill in form">
+    Complete all fields
+  </Step>
+  <Step title="Add at least one item">
+    Items required for submission
+  </Step>
+  <Step title="Click Submit">
+    Or Save then Submit
+  </Step>
+</Steps>
+
+**What happens:**
+- Status changes to Pending Approval
+- Sent to approver based on amount
+- PO locked for editing
+
+---
+
+## After Creating the PO
+
+| Status | What You Can Do |
+|--------|-----------------|
+| Draft | Edit, add items, delete, submit |
+| Pending Approval | Wait for approver |
+| Approved | View, download documents |
+| Rejected | Edit, fix issues, resubmit |
+
+### Checking PO Status
+
+**Location:** Procurement → Find PO row → Status column
+
+Or: Procurement → Click PO → Status badge in header
+
+---
+
+## Common Scenarios
+
+| Situation | Action |
+|-----------|--------|
+| Need PO for sample material | Sample Detail → Materials → Create PO |
+| Ordering from new supplier | Add supplier first, then create PO |
+| Multiple materials, one supplier | Create single PO → Add multiple items |
+| Need to order urgently | Create PO → Submit immediately |
+| Want to prepare PO but not send | Save as Draft → Submit later |
+| Made mistake on submitted PO | Ask approver to reject → Edit → Resubmit |
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Supplier not in dropdown">
+    **Cause:** Supplier not added to system.
+
+    **Solution:** Add the supplier first. Go to Suppliers → Add Supplier, then return to create PO.
+  </Accordion>
+
+  <Accordion title="Can't submit PO">
+    **Cause:** Missing required fields or no items.
+
+    **Solution:**
+    1. Check supplier is selected
+    2. Check category is selected
+    3. Ensure at least one item is added
+  </Accordion>
+
+  <Accordion title="Wrong category selected">
+    **Cause:** Selected wrong category before saving.
+
+    **Solution:** If Draft, edit and change category. If Submitted, ask approver to reject first.
+  </Accordion>
+
+  <Accordion title="Item total showing wrong">
+    **Cause:** Quantity or rate entered incorrectly.
+
+    **Solution:** Edit the item → Correct quantity or rate → Total recalculates.
+  </Accordion>
+
+  <Accordion title="Can't find created PO">
+    **Cause:** Filters hiding the PO.
+
+    **Solution:**
+    1. Go to Procurement
+    2. Clear all filters
+    3. Sort by Created date (newest first)
+  </Accordion>
+
+  <Accordion title="PO not linking to sample">
+    **Cause:** PO created from Procurement page, not sample.
+
+    **Solution:** For auto-linking, create PO from Sample Detail → Materials tab. Manual linking not supported.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Related Guides
+
+<CardGroup cols={2}>
+  <Card title="PO Detail Page" icon="rectangle-list" href="/procurement/po-detail">
+    Full page reference
+  </Card>
+  <Card title="Approval Workflow" icon="check" href="/procurement/approval-workflow">
+    Submitting for approval
+  </Card>
+  <Card title="Suppliers" icon="truck-field" href="/procurement/suppliers">
+    Managing suppliers
+  </Card>
+  <Card title="Material Workflow" icon="layer-group" href="/samples/material-workflow">
+    Sample materials
+  </Card>
+</CardGroup>

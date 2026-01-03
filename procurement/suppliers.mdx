@@ -1,0 +1,369 @@
+---
+title: "Suppliers"
+description: "Managing supplier information in Mac Leather Dashboard"
+icon: "truck-field"
+---
+
+# Suppliers
+
+Suppliers are the vendors you purchase materials from. This guide covers how to add, view, and manage supplier information.
+
+---
+
+## Where to Find Suppliers
+
+**Location:** Sidebar → **Suppliers**
+
+Or access when creating a PO: PO Form → Supplier dropdown
+
+---
+
+## Supplier List Page
+
+The Suppliers page shows all registered suppliers.
+
+### Columns Displayed
+
+| Column | Description |
+|--------|-------------|
+| Supplier Name | Company/business name |
+| Contact Person | Primary contact |
+| Phone | Contact number |
+| Email | Email address |
+| Category | Material type they supply |
+| Status | Active / Inactive |
+| Actions | View, Edit, Delete |
+
+### Filtering Suppliers
+
+| Filter | Options |
+|--------|---------|
+| Category | Leather, Accessories, Lining, Other |
+| Status | Active, Inactive |
+| Search | Search by name or contact |
+
+---
+
+## Adding a New Supplier
+
+<Steps>
+  <Step title="Go to Suppliers">
+    Sidebar → Suppliers
+  </Step>
+  <Step title="Click + Add Supplier">
+    Top right of page
+  </Step>
+  <Step title="Fill in supplier details">
+    Complete the form (see fields below)
+  </Step>
+  <Step title="Save">
+    Supplier added to system
+  </Step>
+</Steps>
+
+### Supplier Form Fields
+
+#### Required Fields
+
+| Field | What to Enter | Example |
+|-------|---------------|---------|
+| Supplier Name | Business/company name | Leather House Ltd |
+| Category | Primary material type | Leather |
+
+#### Optional Fields
+
+| Field | What to Enter | Example |
+|-------|---------------|---------|
+| Contact Person | Primary contact name | Ali Khan |
+| Phone | Contact number | +92 300 1234567 |
+| Email | Email address | ali@leatherhouse.pk |
+| Address | Business address | 123 Main St, Lahore |
+| City | City location | Lahore |
+| Country | Country | Pakistan |
+| Notes | Additional information | Specialist in goat leather |
+
+---
+
+## Supplier Categories
+
+| Category | Suppliers For |
+|----------|---------------|
+| Leather | Leather materials (cow, goat, lamb, etc.) |
+| Accessories | Hardware, zips, buckles, rivets |
+| Lining | Lining fabrics, cotton, polyester |
+| Other | Miscellaneous materials |
+
+<Info>
+A supplier can supply multiple material types. Select the primary category. Add notes for additional materials they provide.
+</Info>
+
+---
+
+## Viewing Supplier Details
+
+<Steps>
+  <Step title="Go to Suppliers">
+    Sidebar → Suppliers
+  </Step>
+  <Step title="Find the supplier">
+    Search or scroll the list
+  </Step>
+  <Step title="Click on supplier row">
+    Opens supplier detail view
+  </Step>
+</Steps>
+
+### Supplier Detail Shows
+
+| Section | Information |
+|---------|-------------|
+| Contact Info | Name, phone, email, address |
+| Category | Material type they supply |
+| Status | Active or Inactive |
+| Notes | Additional information |
+| Purchase Orders | POs created for this supplier |
+
+---
+
+## Editing a Supplier
+
+<Steps>
+  <Step title="Find the supplier">
+    Suppliers → Search or scroll
+  </Step>
+  <Step title="Click Edit">
+    Pencil icon or Edit button
+  </Step>
+  <Step title="Update fields">
+    Modify any information
+  </Step>
+  <Step title="Save">
+    Changes saved
+  </Step>
+</Steps>
+
+### What Can Be Edited
+
+| Field | Editable |
+|-------|----------|
+| Supplier Name | Yes |
+| Contact Person | Yes |
+| Phone | Yes |
+| Email | Yes |
+| Address | Yes |
+| Category | Yes |
+| Notes | Yes |
+| Status | Yes |
+
+---
+
+## Activating/Deactivating Suppliers
+
+### Making a Supplier Inactive
+
+Use when you no longer work with a supplier but want to keep records.
+
+<Steps>
+  <Step title="Open supplier">
+    Suppliers → Click on supplier
+  </Step>
+  <Step title="Click Edit">
+    Edit button
+  </Step>
+  <Step title="Change Status to Inactive">
+    Toggle or select Inactive
+  </Step>
+  <Step title="Save">
+    Supplier deactivated
+  </Step>
+</Steps>
+
+**What happens:**
+- Supplier won't appear in PO dropdowns
+- Historical POs remain linked
+- Can be reactivated later
+
+### Reactivating a Supplier
+
+<Steps>
+  <Step title="Filter by Inactive">
+    Suppliers → Status filter → Inactive
+  </Step>
+  <Step title="Find the supplier">
+    In inactive list
+  </Step>
+  <Step title="Edit and change to Active">
+    Status → Active
+  </Step>
+  <Step title="Save">
+    Supplier reactivated
+  </Step>
+</Steps>
+
+---
+
+## Deleting a Supplier
+
+<Warning>
+Only delete suppliers with no associated POs. If a supplier has POs, deactivate instead.
+</Warning>
+
+<Steps>
+  <Step title="Find the supplier">
+    Suppliers list
+  </Step>
+  <Step title="Click Delete">
+    Trash icon (if available)
+  </Step>
+  <Step title="Confirm deletion">
+    Supplier removed
+  </Step>
+</Steps>
+
+<Info>
+If Delete is not available, the supplier has existing POs. Use Deactivate instead to preserve records.
+</Info>
+
+---
+
+## Using Suppliers in POs
+
+When creating a Purchase Order:
+
+<Steps>
+  <Step title="Open PO form">
+    Procurement → + New PO
+  </Step>
+  <Step title="Click Supplier dropdown">
+    Field in form
+  </Step>
+  <Step title="Search or select">
+    Only Active suppliers shown
+  </Step>
+  <Step title="Select supplier">
+    Supplier assigned to PO
+  </Step>
+</Steps>
+
+### Supplier Not in Dropdown?
+
+| Reason | Solution |
+|--------|----------|
+| Supplier not added | Add supplier first |
+| Supplier is Inactive | Reactivate the supplier |
+| Typo in search | Check spelling |
+
+---
+
+## Viewing Supplier's POs
+
+To see all purchase orders for a specific supplier:
+
+<Steps>
+  <Step title="Open supplier">
+    Suppliers → Click on supplier
+  </Step>
+  <Step title="Go to Purchase Orders section">
+    Shows all POs for this supplier
+  </Step>
+</Steps>
+
+Or from Procurement:
+
+<Steps>
+  <Step title="Go to Procurement">
+    Sidebar → Procurement
+  </Step>
+  <Step title="Filter by Supplier">
+    Supplier filter → Select supplier
+  </Step>
+  <Step title="View filtered list">
+    Shows only POs for that supplier
+  </Step>
+</Steps>
+
+---
+
+## Common Scenarios
+
+| Situation | Action |
+|-----------|--------|
+| Adding a new vendor | Suppliers → + Add Supplier → Fill form |
+| Supplier changed phone number | Edit supplier → Update phone → Save |
+| Stopped working with supplier | Edit → Change status to Inactive |
+| Supplier not showing in PO dropdown | Check if Active, add if not exists |
+| Need supplier's PO history | Supplier Detail → Purchase Orders section |
+| Supplier supplies multiple materials | Select primary category, add others in Notes |
+| Supplier merged with another company | Update name, keep same record |
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Can't find supplier in list">
+    **Cause:** Filters hiding the supplier or supplier not added.
+
+    **Solution:**
+    1. Clear all filters
+    2. Check Status filter includes Active/Inactive as needed
+    3. Search by partial name
+    4. If not found, add as new supplier
+  </Accordion>
+
+  <Accordion title="Supplier not showing in PO dropdown">
+    **Cause:** Supplier is Inactive.
+
+    **Solution:**
+    1. Go to Suppliers
+    2. Filter by Inactive status
+    3. Find supplier and Edit
+    4. Change Status to Active
+    5. Save
+  </Accordion>
+
+  <Accordion title="Can't delete supplier">
+    **Cause:** Supplier has associated POs.
+
+    **Solution:** Deactivate instead of delete. This preserves PO history while hiding supplier from future use.
+  </Accordion>
+
+  <Accordion title="Duplicate supplier entries">
+    **Cause:** Same supplier added twice with different names.
+
+    **Solution:**
+    1. Identify which has more POs
+    2. Keep that one, deactivate the other
+    3. Consider updating name for consistency
+  </Accordion>
+
+  <Accordion title="Need to change supplier on existing PO">
+    **Cause:** Wrong supplier selected on PO.
+
+    **Solution:**
+    - If PO is Draft: Edit PO → Change supplier
+    - If PO is Pending/Approved: Cannot change. May need to create new PO.
+  </Accordion>
+
+  <Accordion title="Supplier category wrong">
+    **Cause:** Selected wrong category when adding.
+
+    **Solution:** Edit supplier → Update category → Save.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Related Guides
+
+<CardGroup cols={2}>
+  <Card title="Creating Purchase Orders" icon="plus" href="/procurement/purchase-orders">
+    How to create POs
+  </Card>
+  <Card title="Procurement Overview" icon="file-invoice" href="/procurement/overview">
+    Module introduction
+  </Card>
+  <Card title="Material Workflow" icon="layer-group" href="/samples/material-workflow">
+    Managing sample materials
+  </Card>
+</CardGroup>
