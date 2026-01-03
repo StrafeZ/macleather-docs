@@ -105,8 +105,9 @@
     {
       "group": "Reference",
       "pages": [
+        "reference/system-codes",
         "reference/status-workflows",
-        "reference/glossary",
+        "reference/field-glossary",
         "reference/keyboard-shortcuts"
       ]
     }
