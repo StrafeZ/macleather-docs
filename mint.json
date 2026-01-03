@@ -59,8 +59,8 @@
         "production/creating-orders",
         "production/job-cards",
         "production/qr-scanning",
-        "production/worker-assignment",
-        "production/rate-management"
+        "production/rate-management",
+        "production/landed-costs"
       ]
     },
     {

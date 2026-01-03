@@ -1,0 +1,219 @@
+---
+title: "Rate Management"
+description: "Managing worker rates for production orders in Sample Flow Nexus"
+icon: "money-bill"
+---
+
+# Rate Management
+
+Rates determine how much workers are paid per piece at each production stage. Rates are set on the production order and apply to all job cards within that order.
+
+---
+
+## Rate Fields
+
+| Field | Stage | Description |
+|-------|-------|-------------|
+| `cutter_rate` | Cutting | Payment per piece for cutting |
+| `fuser_rate` | Fusing | Payment per piece for fusing |
+| `stitcher_rate` | Stitching | Payment per piece for stitching |
+| `finisher_rate` | Finishing | Payment per piece for finishing |
+| `packing_rate` | Packing | Payment per piece for packing |
+
+All rates are in **PKR** (Pakistani Rupees).
+
+---
+
+## Where Rates Come From
+
+Rates flow through the system in this order:
+
+```mermaid
+flowchart LR
+    A[Sample] --> B[Production Order]
+    B --> C[Job Cards]
+```
+
+| Source | Destination | How |
+|--------|-------------|-----|
+| Sample | Production Order | Copied when using "Move to Production" |
+| Production Order | Job Cards | Applied when job card stage is completed |
+
+<Info>
+If you create a production order manually (not from a sample), rates start at 0. You must enter them on the production order.
+</Info>
+
+---
+
+## Viewing Rates
+
+### On Production Order
+
+**Location:** Production Order Detail → **Overview** tab → Rates section
+
+Shows all 5 rate fields with current values.
+
+### On Job Card
+
+**Location:** Job Card Detail → Rates section
+
+Shows rates that apply to this job card (inherited from production order).
+
+---
+
+## Updating Rates on Production Order
+
+<Steps>
+  <Step title="Open production order">
+    Sidebar → Production → Click on order
+  </Step>
+  <Step title="Click Edit">
+    Button in header area
+  </Step>
+  <Step title="Find Rates section">
+    Scroll to rate fields
+  </Step>
+  <Step title="Enter new values">
+    Update any rate fields needed
+  </Step>
+  <Step title="Save">
+    Click Save to apply changes
+  </Step>
+</Steps>
+
+---
+
+## Effect on Existing Job Cards
+
+When you update rates on a production order:
+
+| Job Card Status | Effect |
+|-----------------|--------|
+| Not yet at that stage | **New rate applies** when they reach the stage |
+| Already completed that stage | **No change** — original rate was already recorded |
+
+**Example:**
+- Production order has stitcher_rate = PKR 100
+- 50 job cards already completed Stitching (paid PKR 100 each)
+- You change stitcher_rate to PKR 120
+- Remaining 150 job cards will be paid PKR 120 when they complete Stitching
+- The 50 already completed remain at PKR 100
+
+<Warning>
+Rate changes only affect job cards that haven't completed that stage yet. Completed stages keep their original rate.
+</Warning>
+
+---
+
+## How Worker Payment Is Calculated
+
+When a worker completes a stage (via QR scan or manual update):
+
+```
+Payment = Rate for that stage × 1 piece
+```
+
+### Example Calculation
+
+| Stage | Worker | Rate | Payment |
+|-------|--------|------|---------|
+| Cutting | Ali | PKR 50 | PKR 50 |
+| Fusing | Bilal | PKR 30 | PKR 30 |
+| Stitching | Fatima | PKR 150 | PKR 150 |
+| Finishing | Hassan | PKR 80 | PKR 80 |
+| Packing | Zara | PKR 40 | PKR 40 |
+
+### Worker Total Earnings
+
+Worker earnings = Sum of all pieces completed × rate per piece
+
+**Example:** Fatima completes Stitching on 100 job cards at PKR 150 each = PKR 15,000
+
+---
+
+## Rate Inheritance
+
+### From Sample to Production
+
+When you click "Move to Production" on a sample:
+
+| Sample Field | Production Field |
+|--------------|------------------|
+| stitcher_rate | stitcher_rate |
+| fuser_rate | fuser_rate |
+
+<Info>
+Samples only have stitcher_rate and fuser_rate. The other three rates (cutter, finisher, packing) must be set on the production order.
+</Info>
+
+### Default Values
+
+| Field | Default if Not Set |
+|-------|-------------------|
+| cutter_rate | 0 |
+| fuser_rate | From sample, or 0 |
+| stitcher_rate | From sample, or 0 |
+| finisher_rate | 0 |
+| packing_rate | 0 |
+
+<Warning>
+If a rate is 0, workers will not earn anything for completing that stage. Always verify rates before production starts.
+</Warning>
+
+---
+
+## Common Scenarios
+
+| Situation | Action |
+|-----------|--------|
+| Set rates for new order | Production Order → Edit → Enter all 5 rates → Save |
+| Check current rates | Production Order → Overview tab → Rates section |
+| Change rate mid-production | Production Order → Edit → Update rate → Save (only affects future completions) |
+| Rate showing as 0 | Edit production order and enter the correct rate |
+| Verify worker will be paid | Check that rate for their stage is greater than 0 |
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Worker not getting paid for completed work">
+    **Cause:** Rate is set to 0 for that stage.
+
+    **Solution:** Edit production order → Set correct rate → Save. Note: This won't retroactively pay for already-completed stages.
+  </Accordion>
+
+  <Accordion title="Rates didn't copy from sample">
+    **Cause:** Sample didn't have rates set, or created production order manually.
+
+    **Solution:** Edit production order and enter rates manually.
+  </Accordion>
+
+  <Accordion title="Wrong rate applied to job cards">
+    **Cause:** Rate was changed after some job cards completed.
+
+    **Solution:** Completed stages cannot be changed. For future job cards, update the rate on production order.
+  </Accordion>
+
+  <Accordion title="Can't edit rates">
+    **Cause:** Don't have edit permission, or order is completed/cancelled.
+
+    **Solution:** Contact admin for permission, or rates cannot be changed on completed orders.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Related Guides
+
+<CardGroup cols={2}>
+  <Card title="Creating Orders" icon="plus" href="/production/creating-orders">
+    Setting rates during order creation
+  </Card>
+  <Card title="QR Scanning" icon="qrcode" href="/production/qr-scanning">
+    How scanning triggers payment
+  </Card>
+  <Card title="Landed Costs" icon="calculator" href="/production/landed-costs">
+    How rates affect total costs
+  </Card>
+</CardGroup>

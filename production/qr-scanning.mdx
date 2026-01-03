@@ -1,0 +1,244 @@
+---
+title: "QR Scanning"
+description: "Using QR codes for job card tracking in Sample Flow Nexus"
+icon: "qrcode"
+---
+
+# QR Scanning
+
+Each job card has a unique QR code. Workers scan the QR code to update the job card stage and record their work.
+
+---
+
+## What QR Codes Are For
+
+| Purpose | Description |
+|---------|-------------|
+| Stage tracking | Update job card from one stage to the next |
+| Worker recording | Log which worker completed the stage |
+| Payment calculation | System calculates payment based on rate × completed pieces |
+| Time tracking | Record when each stage was completed |
+
+---
+
+## Where to Find QR Codes
+
+### On Job Card Detail Page
+
+**Location:** Job Card Detail → QR code displayed in header or sidebar
+
+### Print from Job Card
+
+**Location:** Job Card Detail → **Print QR** button
+
+### Bulk Print from List
+
+**Location:** Job Cards list → Select multiple → Bulk Actions → **Print QR**
+
+---
+
+## How to Print QR Codes
+
+### Single Job Card
+
+<Steps>
+  <Step title="Open job card">
+    Click on job card number
+  </Step>
+  <Step title="Click Print QR">
+    Button in header area
+  </Step>
+  <Step title="Print dialog opens">
+    Select printer and print
+  </Step>
+</Steps>
+
+### Multiple Job Cards
+
+<Steps>
+  <Step title="Go to Job Cards list">
+    Production Order → Job Cards tab, or Sidebar → Job Cards
+  </Step>
+  <Step title="Select job cards">
+    Check boxes next to cards to print
+  </Step>
+  <Step title="Click Bulk Actions">
+    Button appears when items selected
+  </Step>
+  <Step title="Select Print QR">
+    Print preview opens with all selected QR codes
+  </Step>
+  <Step title="Print">
+    Send to printer
+  </Step>
+</Steps>
+
+### QR Label Contents
+
+Each printed QR label includes:
+- QR code (scannable)
+- Job card number (JC-YYYY-XXXXX)
+- Production order number
+- Size
+- Style name
+
+---
+
+## Scanning QR Codes
+
+### What Happens When Scanned
+
+When a worker scans a QR code:
+
+1. **System identifies job card** — Reads JC number from QR
+2. **Worker selects their name** — From dropdown or pre-logged in
+3. **Stage advances** — Moves to next stage automatically
+4. **Record created** — Logs worker, timestamp, stage
+5. **Payment calculated** — Rate for that stage added to worker's earnings
+
+### Scan Flow Example
+
+| Current Stage | After Scan | Worker Recorded | Payment Added |
+|---------------|------------|-----------------|---------------|
+| Created | Cutting | Cutter name | cutter_rate |
+| Cutting | Fusing | Fuser name | fuser_rate |
+| Fusing | Stitching | Stitcher name | stitcher_rate |
+| Stitching | Finishing | Finisher name | finisher_rate |
+| Finishing | Packing | Packer name | packing_rate |
+| Packing | Completed | Packer name | — |
+
+<Info>
+Each scan advances the job card by one stage. Workers can only scan cards that are ready for their department's stage.
+</Info>
+
+---
+
+## Scanner Setup
+
+### Supported Devices
+
+- Dedicated barcode/QR scanners
+- Smartphones with camera
+- Tablets with camera
+
+### Scanner App
+
+Workers use the Sample Flow Nexus mobile app or web scanner:
+
+**Location:** App → **Scan** tab
+
+Or access web scanner at: `app.macleather.co.uk/scan`
+
+---
+
+## What the System Records
+
+Each scan creates a record with:
+
+| Field | Description |
+|-------|-------------|
+| Job Card | JC number scanned |
+| Stage | Stage completed |
+| Worker | Worker who scanned |
+| Timestamp | Date and time of scan |
+| Rate | Rate applied for this stage |
+| Production Order | Parent PRD number |
+
+---
+
+## Payment Calculation
+
+When a worker scans a job card:
+
+```
+Payment = Rate for that stage × 1 piece
+```
+
+**Example:**
+- Worker scans job card at Stitching stage
+- Stitcher rate = PKR 150
+- Worker earns PKR 150 for that piece
+
+Worker's total earnings = Sum of all pieces completed × rate per piece
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="QR code won't scan">
+    **Possible causes:**
+    - QR code damaged or dirty
+    - Poor lighting
+    - Camera not focused
+
+    **Solutions:**
+    - Clean the QR label
+    - Improve lighting
+    - Hold scanner steady, closer to QR code
+    - Reprint QR code if damaged
+  </Accordion>
+
+  <Accordion title="'Job card not found' error">
+    **Cause:** QR code is corrupted or job card was deleted.
+
+    **Solution:** Search for job card manually by number. If not found, contact admin.
+  </Accordion>
+
+  <Accordion title="'Wrong stage' error">
+    **Cause:** Job card is not at the expected stage for this worker's department.
+
+    **Solution:** Check job card's current stage. A Stitcher cannot scan a card that's still at Cutting stage.
+  </Accordion>
+
+  <Accordion title="'Already completed' error">
+    **Cause:** Job card has already been scanned for this stage.
+
+    **Solution:** This job card already moved past this stage. No action needed.
+  </Accordion>
+
+  <Accordion title="Worker not appearing in dropdown">
+    **Cause:** Worker not added to system or not assigned to correct department.
+
+    **Solution:** Contact admin to add worker or update their department.
+  </Accordion>
+
+  <Accordion title="Payment not showing for worker">
+    **Cause:** Rate is set to 0, or scan didn't complete.
+
+    **Solution:**
+    1. Check production order rates (Rate Management)
+    2. Verify scan completed (check job card stage history)
+  </Accordion>
+
+  <Accordion title="Scanned wrong job card">
+    **Cause:** Human error.
+
+    **Solution:** Stage changes cannot be undone. Contact admin if correction needed. The incorrect scan is logged in history.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Common Scenarios
+
+| Situation | Action |
+|-----------|--------|
+| Print QR for new batch | Job Cards list → Select new cards → Bulk Actions → Print QR |
+| QR label fell off | Find job card by number → Print QR again |
+| Worker scanned wrong card | Note the error, contact admin for correction |
+| Check if card was scanned | Open job card → View stage history |
+| See who scanned a card | Job Card Detail → Stage history shows worker name |
+
+---
+
+## Related Guides
+
+<CardGroup cols={2}>
+  <Card title="Job Cards" icon="id-card" href="/production/job-cards">
+    Managing job cards
+  </Card>
+  <Card title="Rate Management" icon="money-bill" href="/production/rate-management">
+    Understanding rates and payments
+  </Card>
+</CardGroup>

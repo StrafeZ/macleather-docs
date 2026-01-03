@@ -1,0 +1,189 @@
+---
+title: "Creating Production Orders"
+description: "How to create production orders in Sample Flow Nexus"
+icon: "plus"
+---
+
+# Creating Production Orders
+
+There are two ways to create a production order:
+1. **From a sample** — Click "Move to Production" on an approved sample
+2. **Manual** — Create directly in the Production module
+
+---
+
+## Method 1: From Sample (Recommended)
+
+<Steps>
+  <Step title="Open the approved sample">
+    Go to Samples → Click on the sample
+  </Step>
+  <Step title="Verify all materials are approved">
+    Check Materials tab — all 3 must show "Approved" status
+  </Step>
+  <Step title="Click Move to Production">
+    Button in sample header (only visible when all materials approved)
+  </Step>
+  <Step title="Enter production details">
+    Fill in the form fields (see below)
+  </Step>
+  <Step title="Click Create">
+    System creates the production order and job cards
+  </Step>
+</Steps>
+
+### What Copies from Sample Automatically
+
+| Field | Copied? |
+|-------|---------|
+| Customer | Yes |
+| Style name | Yes |
+| Description | Yes |
+| Material specifications | Yes |
+| Stitcher rate | Yes |
+| Fuser rate | Yes |
+| Files | Yes (linked) |
+| Notes | Yes |
+
+---
+
+## Method 2: Manual Creation
+
+**Location:** Sidebar → Production → **+ New Order**
+
+<Steps>
+  <Step title="Go to Production">
+    Sidebar → Production
+  </Step>
+  <Step title="Click + New Order">
+    Button in top right
+  </Step>
+  <Step title="Fill in all fields">
+    Must enter customer, style, quantities manually
+  </Step>
+  <Step title="Click Create">
+    System creates the production order and job cards
+  </Step>
+</Steps>
+
+<Warning>
+Manual creation requires entering all details yourself. Use "From Sample" when possible—it's faster and ensures data consistency.
+</Warning>
+
+---
+
+## Form Fields
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| Customer | Yes | Select from dropdown |
+| Style Name | Yes | Product name/description |
+| Customer PO | No | Customer's purchase order reference |
+| Delivery Date | Yes | Required completion date |
+| Notes | No | Additional information |
+
+### Rate Fields
+
+| Field | Description | Default |
+|-------|-------------|---------|
+| Cutter Rate | Payment per piece for cutting | From sample or blank |
+| Fuser Rate | Payment per piece for fusing | From sample or blank |
+| Stitcher Rate | Payment per piece for stitching | From sample or blank |
+| Finisher Rate | Payment per piece for finishing | From sample or blank |
+| Packing Rate | Payment per piece for packing | From sample or blank |
+
+---
+
+## Size/Quantity Entry
+
+Enter quantities for each size:
+
+| Field | Format | Example |
+|-------|--------|---------|
+| Size | Size code | S, M, L, XL, 8, 10, 12 |
+| Quantity | Number | 50 |
+
+**Example entry:**
+
+| Size | Quantity |
+|------|----------|
+| S | 25 |
+| M | 50 |
+| L | 40 |
+| XL | 20 |
+| **Total** | **135** |
+
+<Info>
+The system creates one job card per unit. If you enter 135 total units, the system creates 135 job cards.
+</Info>
+
+---
+
+## What the System Creates
+
+When you click Create, the system:
+
+1. **Generates production order number** (PRD-YYYY-XXX)
+2. **Creates job cards** — One per unit (e.g., 135 units = 135 job cards)
+3. **Assigns job card numbers** — Sequential (JC-YYYY-XXXXX)
+4. **Sets all job cards to "Created" stage**
+5. **Sets production order to "New" status**
+6. **Links to source sample** (if created from sample)
+7. **Logs creation in Activity tab**
+8. **Redirects to Production Order Detail page**
+
+---
+
+## Common Errors
+
+<AccordionGroup>
+  <Accordion title="'Move to Production' button not visible">
+    **Cause:** Not all materials are approved on the sample.
+
+    **Solution:** Go to sample → Materials tab → Approve all 3 materials (Leather, Accessories, Lining).
+  </Accordion>
+
+  <Accordion title="'Customer is required' error">
+    **Cause:** No customer selected.
+
+    **Solution:** Select a customer from the dropdown. If customer doesn't exist, contact admin to add them.
+  </Accordion>
+
+  <Accordion title="'Quantity must be greater than 0' error">
+    **Cause:** No sizes/quantities entered.
+
+    **Solution:** Enter at least one size with quantity greater than 0.
+  </Accordion>
+
+  <Accordion title="'Delivery date is required' error">
+    **Cause:** No delivery date set.
+
+    **Solution:** Select a delivery date from the date picker.
+  </Accordion>
+
+  <Accordion title="Order created but no job cards appear">
+    **Cause:** System delay or total quantity was 0.
+
+    **Solution:** Refresh the page. If still no job cards, check that quantities were entered correctly.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## After Creation
+
+Once the production order is created:
+
+1. **Review job cards** — Go to Job Cards tab to verify count
+2. **Print QR codes** — For factory floor tracking
+3. **Verify rates** — Check Rate Management if rates need adjustment
+4. **Check landed cost** — Review cost calculations
+
+<CardGroup cols={2}>
+  <Card title="Job Cards" icon="id-card" href="/production/job-cards">
+    Managing job cards
+  </Card>
+  <Card title="QR Scanning" icon="qrcode" href="/production/qr-scanning">
+    Printing and using QR codes
+  </Card>
+</CardGroup>

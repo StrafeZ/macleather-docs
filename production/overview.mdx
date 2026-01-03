@@ -1,0 +1,163 @@
+---
+title: "Production Overview"
+description: "Guide to the Production module in Sample Flow Nexus"
+icon: "industry"
+---
+
+# Production Overview
+
+The Production module manages bulk manufacturing orders. Each production order contains multiple job cards—one for each physical piece being made.
+
+---
+
+## System Codes
+
+### Production Order
+
+**Format:** `PRD-YYYY-XXX`
+
+| Part | Meaning | Example |
+|------|---------|---------|
+| `PRD` | Production prefix | PRD |
+| `YYYY` | Year created | 2026 |
+| `XXX` | Sequential number | 001, 002, 003... |
+
+**Example:** `PRD-2026-015` = The 15th production order created in 2026
+
+### Job Card
+
+**Format:** `JC-YYYY-XXXXX`
+
+| Part | Meaning | Example |
+|------|---------|---------|
+| `JC` | Job Card prefix | JC |
+| `YYYY` | Year created | 2026 |
+| `XXXXX` | Sequential number (5 digits) | 00001, 00142 |
+
+**Example:** `JC-2026-00142` = The 142nd job card created in 2026
+
+<Info>
+Job cards have 5-digit sequential numbers because there are many more job cards than production orders. A single production order of 500 units creates 500 job cards.
+</Info>
+
+---
+
+## Production Order Statuses
+
+| Status | Meaning | How It's Set |
+|--------|---------|--------------|
+| New | Just created, no work started | Automatic on creation |
+| In Progress | At least one job card has started | Automatic when any job card moves past "Created" |
+| Completed | All job cards finished | Automatic when all job cards reach "Completed" |
+| On Hold | Paused | Manual |
+| Cancelled | Order cancelled | Manual |
+
+---
+
+## Job Card Stages
+
+Each job card moves through these stages:
+
+| Stage | What It Means | Department |
+|-------|---------------|------------|
+| Created | Job card generated, not started | — |
+| Cutting | Leather/material being cut | Cutter |
+| Fusing | Materials being fused together | Fuser |
+| Stitching | Piece being sewn | Stitcher |
+| Finishing | Final touches, edges, hardware | Finisher |
+| Packing | Being packaged | Packer |
+| Completed | Finished and packed | — |
+
+```mermaid
+flowchart LR
+    A[Created] --> B[Cutting]
+    B --> C[Fusing]
+    C --> D[Stitching]
+    D --> E[Finishing]
+    E --> F[Packing]
+    F --> G[Completed]
+```
+
+---
+
+## Page Layouts
+
+### Production Orders List
+
+**Location:** Sidebar → Production
+
+**Columns displayed:**
+- Order number (PRD-YYYY-XXX)
+- Customer name
+- Style name
+- Total quantity
+- Completed count
+- Status
+- Delivery date
+
+**Filters available:**
+- Status
+- Customer
+- Date range
+
+### Production Order Detail
+
+**Header:**
+- Order number
+- Customer and style
+- Status badge
+- Action buttons
+
+**Tabs:**
+
+| Tab | Contents |
+|-----|----------|
+| Overview | Order details, dates, quantities, rates |
+| Job Cards | List of all job cards for this order |
+| Files | Uploaded documents |
+| Activity | Change history |
+
+**Below Tabs:** Landed Cost card
+
+### Job Cards List
+
+**Location:** Sidebar → Job Cards (or Production Order → Job Cards tab)
+
+**Columns displayed:**
+- Job card number (JC-YYYY-XXXXX)
+- Production order
+- Stage
+- Current worker
+- Size
+- Created date
+
+---
+
+## Quick Reference
+
+| Action | Location |
+|--------|----------|
+| View all production orders | Sidebar → Production |
+| Create new order | Production → + New Order |
+| View job cards for an order | Production Order → Job Cards tab |
+| View all job cards | Sidebar → Job Cards |
+| Print QR codes | Job Card → Print QR |
+
+---
+
+## Related Guides
+
+<CardGroup cols={2}>
+  <Card title="Creating Orders" icon="plus" href="/production/creating-orders">
+    How to create production orders
+  </Card>
+  <Card title="Job Cards" icon="id-card" href="/production/job-cards">
+    Managing individual job cards
+  </Card>
+  <Card title="QR Scanning" icon="qrcode" href="/production/qr-scanning">
+    Using QR codes on the floor
+  </Card>
+  <Card title="Rate Management" icon="money-bill" href="/production/rate-management">
+    Setting and updating rates
+  </Card>
+</CardGroup>

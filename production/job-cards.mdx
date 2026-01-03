@@ -1,0 +1,276 @@
+---
+title: "Job Cards"
+description: "Understanding and managing job cards in Sample Flow Nexus"
+icon: "id-card"
+---
+
+# Job Cards
+
+A job card represents **one physical piece** being manufactured. If a production order has 500 units, there are 500 job cards.
+
+---
+
+## Job Card Number Format
+
+**Format:** `JC-YYYY-XXXXX`
+
+| Part | Meaning | Example |
+|------|---------|---------|
+| `JC` | Job Card prefix | JC |
+| `YYYY` | Year created | 2026 |
+| `XXXXX` | Sequential number (5 digits) | 00001, 00142, 01500 |
+
+**Example:** `JC-2026-00142` = The 142nd job card created in 2026
+
+---
+
+## How Job Cards Are Created
+
+Job cards are created **automatically** when you create a production order.
+
+| Production Order Quantity | Job Cards Created |
+|---------------------------|-------------------|
+| 50 units | 50 job cards |
+| 200 units | 200 job cards |
+| 1,000 units | 1,000 job cards |
+
+<Info>
+You cannot manually create individual job cards. They are always generated from a production order.
+</Info>
+
+---
+
+## Job Card Stages
+
+| Stage | Meaning | How It's Set |
+|-------|---------|--------------|
+| Created | Job card exists, work not started | Automatic on creation |
+| Cutting | Leather/material being cut | QR scan or manual |
+| Fusing | Pieces being fused together | QR scan or manual |
+| Stitching | Being sewn | QR scan or manual |
+| Finishing | Final work (edges, hardware) | QR scan or manual |
+| Packing | Being packaged | QR scan or manual |
+| Completed | Finished and packed | QR scan or manual |
+
+### Stage Flow
+
+```mermaid
+flowchart LR
+    A[Created] --> B[Cutting]
+    B --> C[Fusing]
+    C --> D[Stitching]
+    D --> E[Finishing]
+    E --> F[Packing]
+    F --> G[Completed]
+```
+
+<Info>
+Stages must progress in order. You cannot skip from "Cutting" to "Finishing"—each stage must be completed sequentially.
+</Info>
+
+---
+
+## Viewing Job Cards
+
+### From Production Order
+
+**Location:** Production Order Detail → **Job Cards** tab
+
+Shows only job cards for that specific order.
+
+### All Job Cards
+
+**Location:** Sidebar → **Job Cards**
+
+Shows all job cards across all production orders.
+
+### Columns Displayed
+
+| Column | Description |
+|--------|-------------|
+| Job Card # | JC-YYYY-XXXXX number |
+| Production Order | Parent PRD number |
+| Customer | Customer name |
+| Style | Product style name |
+| Size | Size code (S, M, L, etc.) |
+| Stage | Current stage |
+| Worker | Currently assigned worker (if any) |
+| Created | Date created |
+
+### Filters Available
+
+| Filter | Options |
+|--------|---------|
+| Stage | Created, Cutting, Fusing, Stitching, Finishing, Packing, Completed |
+| Production Order | Select specific order |
+| Customer | Select customer |
+| Size | Filter by size |
+| Date Range | Created date range |
+
+### Search
+
+Type in the search box to find job cards by:
+- Job card number (JC-2026-00142)
+- Production order number (PRD-2026-015)
+
+---
+
+## Job Card Detail Page
+
+**Access:** Click on any job card number
+
+### Header
+
+- Job card number
+- Production order (clickable link)
+- Current stage badge
+- QR code button
+
+### Information Displayed
+
+| Section | Fields |
+|---------|--------|
+| Details | Size, customer, style, created date |
+| Stage | Current stage, stage history |
+| Worker | Current worker assigned (per stage) |
+| Rates | Rate for current stage |
+
+### Stage History
+
+Shows each stage transition:
+- Stage name
+- Worker who completed it
+- Timestamp
+- Rate paid
+
+---
+
+## Changing Job Card Stage
+
+### Method 1: QR Scan (Recommended)
+
+See [QR Scanning Guide](/production/qr-scanning)
+
+### Method 2: Manual Update
+
+<Steps>
+  <Step title="Open job card">
+    Click on job card number to open detail page
+  </Step>
+  <Step title="Click Change Stage">
+    Button in header area
+  </Step>
+  <Step title="Select next stage">
+    Choose from dropdown (only next sequential stage available)
+  </Step>
+  <Step title="Select worker (if required)">
+    Choose worker who completed the stage
+  </Step>
+  <Step title="Save">
+    Stage updates and logs in history
+  </Step>
+</Steps>
+
+---
+
+## Bulk Actions
+
+### Bulk Stage Update
+
+Update multiple job cards at once:
+
+<Steps>
+  <Step title="Go to Job Cards list">
+    Production Order → Job Cards tab, or Sidebar → Job Cards
+  </Step>
+  <Step title="Select job cards">
+    Check the boxes next to job cards to update
+  </Step>
+  <Step title="Click Bulk Actions">
+    Button appears when items selected
+  </Step>
+  <Step title="Choose Update Stage">
+    Select from dropdown
+  </Step>
+  <Step title="Select new stage and worker">
+    Fill in the form
+  </Step>
+  <Step title="Confirm">
+    All selected job cards update
+  </Step>
+</Steps>
+
+<Warning>
+Bulk actions apply the same stage and worker to all selected job cards. Only use when all selected cards are at the same current stage.
+</Warning>
+
+### Bulk Print QR
+
+Print QR codes for multiple job cards:
+
+<Steps>
+  <Step title="Select job cards">
+    Check boxes next to job cards
+  </Step>
+  <Step title="Click Bulk Actions → Print QR">
+    Opens print preview
+  </Step>
+  <Step title="Print">
+    Send to printer
+  </Step>
+</Steps>
+
+---
+
+## Common Scenarios
+
+| Situation | Action |
+|-----------|--------|
+| Find a specific job card | Search by JC number in search box |
+| See all job cards for an order | Production Order → Job Cards tab |
+| See which job cards are at Stitching | Filter by Stage = "Stitching" |
+| Update multiple cards at once | Select cards → Bulk Actions → Update Stage |
+| Print QR codes for new job cards | Select cards → Bulk Actions → Print QR |
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Job cards not appearing after creating order">
+    **Cause:** Page not refreshed, or quantity was 0.
+
+    **Solution:** Refresh the page. Check production order quantities are greater than 0.
+  </Accordion>
+
+  <Accordion title="Cannot change stage">
+    **Cause:** Trying to skip stages, or job card already completed.
+
+    **Solution:** Stages must progress in order. Check current stage and select the next one only.
+  </Accordion>
+
+  <Accordion title="Wrong worker assigned">
+    **Cause:** Selected wrong worker during stage change.
+
+    **Solution:** Stage changes cannot be undone. Contact admin if correction needed.
+  </Accordion>
+
+  <Accordion title="Bulk action not working">
+    **Cause:** Selected job cards are at different stages.
+
+    **Solution:** Only select job cards that are at the same current stage for bulk updates.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Related Guides
+
+<CardGroup cols={2}>
+  <Card title="QR Scanning" icon="qrcode" href="/production/qr-scanning">
+    Using QR codes for stage updates
+  </Card>
+  <Card title="Rate Management" icon="money-bill" href="/production/rate-management">
+    Understanding job card rates
+  </Card>
+</CardGroup>

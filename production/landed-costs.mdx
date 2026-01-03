@@ -1,0 +1,226 @@
+---
+title: "Production Landed Costs"
+description: "Understanding cost calculations for production orders in Sample Flow Nexus"
+icon: "calculator"
+---
+
+# Production Landed Costs
+
+The Landed Cost section on a production order shows the complete cost breakdown for manufacturing the order, including materials, all labor stages, and additional costs.
+
+---
+
+## Where to Find It
+
+**Location:** Production Order Detail → **Landed Cost** card (below the tabs)
+
+---
+
+## Sample vs Production Landed Cost
+
+| Aspect | Sample | Production |
+|--------|--------|------------|
+| **Location** | Sample Detail page | Production Order Detail page |
+| **Labor rates** | 2 (stitcher, fuser) | 5 (cutter, fuser, stitcher, finisher, packing) |
+| **Quantity** | Small (1-5 typically) | Large (50-5000+) |
+| **Materials calculation** | Per sample | Per unit × total quantity |
+| **Purpose** | Estimate costs | Track actual production costs |
+
+---
+
+## Cost Breakdown
+
+### Line-by-Line Explanation
+
+| Line | What It Shows | Calculation |
+|------|---------------|-------------|
+| **Materials** | Total material cost | (Leather + Accessories + Lining) × Quantity |
+| **Cutting** | Total cutting labor | cutter_rate × Quantity |
+| **Fusing** | Total fusing labor | fuser_rate × Quantity |
+| **Stitching** | Total stitching labor | stitcher_rate × Quantity |
+| **Finishing** | Total finishing labor | finisher_rate × Quantity |
+| **Packing** | Total packing labor | packing_rate × Quantity |
+| **Additional** | Other costs | Manual entry |
+| **Total Cost** | Everything combined | Materials + All Labor + Additional |
+| **Per Unit** | Cost per piece | Total ÷ Quantity |
+
+---
+
+## Materials Cost
+
+Materials cost is calculated from the linked sample (if created from sample) or entered manually:
+
+```
+Materials Cost = (Leather + Accessories + Lining) × Total Quantity
+```
+
+**Example:**
+| Material | Unit Cost | Quantity | Total |
+|----------|-----------|----------|-------|
+| Leather | PKR 500 | 200 | PKR 100,000 |
+| Accessories | PKR 150 | 200 | PKR 30,000 |
+| Lining | PKR 80 | 200 | PKR 16,000 |
+| **Materials Total** | | | **PKR 146,000** |
+
+---
+
+## Labor Costs (All 5 Stages)
+
+Each labor cost = Rate × Total Quantity
+
+| Stage | Rate Field | Example Rate | Quantity | Total |
+|-------|------------|--------------|----------|-------|
+| Cutting | cutter_rate | PKR 50 | 200 | PKR 10,000 |
+| Fusing | fuser_rate | PKR 30 | 200 | PKR 6,000 |
+| Stitching | stitcher_rate | PKR 150 | 200 | PKR 30,000 |
+| Finishing | finisher_rate | PKR 80 | 200 | PKR 16,000 |
+| Packing | packing_rate | PKR 40 | 200 | PKR 8,000 |
+| **Labor Total** | | | | **PKR 70,000** |
+
+<Info>
+Labor costs are calculated from the rates set on the production order, not actual completed work. The landed cost shows the expected total cost if all units are completed.
+</Info>
+
+---
+
+## Additional Costs
+
+You can add other costs manually:
+
+| Example | Description |
+|---------|-------------|
+| Packaging materials | Boxes, tissue, tags |
+| Special treatments | Waterproofing, embossing |
+| Quality testing | Lab testing fees |
+| Rush charges | Overtime or expedited work |
+
+**To add additional costs:** Click **Add Cost** in the Landed Cost card → Enter description and amount.
+
+---
+
+## Currency Display
+
+Costs are shown in two currencies:
+
+| Currency | Description |
+|----------|-------------|
+| **PKR** | Pakistani Rupee (primary) |
+| **GBP** | British Pound (converted) |
+
+The exchange rate is displayed at the top of the Landed Cost card and updates automatically.
+
+---
+
+## Complete Example
+
+**Production Order:** PRD-2026-015
+**Quantity:** 200 units
+
+| Cost Type | PKR | GBP |
+|-----------|-----|-----|
+| Materials (Leather) | 100,000 | £285.71 |
+| Materials (Accessories) | 30,000 | £85.71 |
+| Materials (Lining) | 16,000 | £45.71 |
+| **Materials Subtotal** | **146,000** | **£417.14** |
+| Cutting Labor | 10,000 | £28.57 |
+| Fusing Labor | 6,000 | £17.14 |
+| Stitching Labor | 30,000 | £85.71 |
+| Finishing Labor | 16,000 | £45.71 |
+| Packing Labor | 8,000 | £22.86 |
+| **Labor Subtotal** | **70,000** | **£200.00** |
+| Additional (Packaging) | 4,000 | £11.43 |
+| **Grand Total** | **220,000** | **£628.57** |
+| **Per Unit Cost** | **1,100** | **£3.14** |
+
+---
+
+## Margin/Profitability Section
+
+If selling price is entered, the system calculates:
+
+| Field | Calculation |
+|-------|-------------|
+| Selling Price | Manual entry (per unit) |
+| Cost Per Unit | Total Cost ÷ Quantity |
+| Margin | Selling Price - Cost Per Unit |
+| Margin % | (Margin ÷ Selling Price) × 100 |
+
+**Example:**
+- Selling price: PKR 1,800 per unit
+- Cost per unit: PKR 1,100
+- Margin: PKR 700 (38.9%)
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Materials cost showing as 0">
+    **Cause:** Material costs not entered on sample, or production order created manually without material costs.
+
+    **Solution:**
+    1. Check linked sample has material costs entered
+    2. Or edit production order to enter material costs manually
+  </Accordion>
+
+  <Accordion title="Labor costs showing as 0">
+    **Cause:** Rate fields are set to 0.
+
+    **Solution:** Edit production order → Enter rates for all 5 stages → Save.
+  </Accordion>
+
+  <Accordion title="Per unit cost seems wrong">
+    **Cause:** Quantity is incorrect, or costs are missing.
+
+    **Solution:**
+    1. Verify total quantity is correct
+    2. Check all cost lines have values
+    3. Recalculate: Total ÷ Quantity = Per Unit
+  </Accordion>
+
+  <Accordion title="GBP conversion looks wrong">
+    **Cause:** Exchange rate may be outdated or incorrect.
+
+    **Solution:** Exchange rate updates automatically. If still wrong, contact admin to verify rate source.
+  </Accordion>
+
+  <Accordion title="Additional costs not saving">
+    **Cause:** Missing description or invalid amount.
+
+    **Solution:** Enter both a description and a valid number amount.
+  </Accordion>
+
+  <Accordion title="Can't edit landed cost">
+    **Cause:** Values are calculated from other fields.
+
+    **Solution:** Edit the source fields:
+    - Materials: Edit on linked sample or production order
+    - Labor: Edit rate fields on production order
+    - Additional: Add/edit in Additional Costs section
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Common Scenarios
+
+| Situation | Action |
+|-----------|--------|
+| Check total production cost | Production Order → Landed Cost card → View Total |
+| See cost per piece | Landed Cost card → Per Unit Cost line |
+| Add packaging costs | Landed Cost → Add Cost → Enter details |
+| Compare cost to selling price | Enter selling price to see Margin section |
+| Check why cost is high | Review each line item for unexpected values |
+
+---
+
+## Related Guides
+
+<CardGroup cols={2}>
+  <Card title="Rate Management" icon="money-bill" href="/production/rate-management">
+    Setting labor rates
+  </Card>
+  <Card title="Sample Landed Costs" icon="calculator" href="/samples/landed-costs">
+    Sample costing comparison
+  </Card>
+</CardGroup>
