@@ -1,560 +1,477 @@
 ---
-title: "Sample Workflow: Start to Finish"
-description: "Complete guide to managing a sample from initial request through to production or completion"
+title: "Sample Workflow Guide"
+description: "Complete application guide for managing samples in Sample Flow Nexus"
 icon: "route"
 ---
 
-# Sample Workflow: Start to Finish
+# Sample Workflow Guide
 
-This guide walks you through the complete journey of a sample—from the moment a customer makes a request to the final outcome. Whether you're new to the system or want a refresher, follow along step by step.
-
-<Note>
-**Timeline varies**
-
-A typical sample takes 2-4 weeks from request to customer delivery. Complex samples with custom materials or multiple revisions can take longer. Always communicate realistic timelines to your customer.
-</Note>
-
-## Complete Workflow Overview
-
-```mermaid
-flowchart TD
-    A[Customer Request] --> B[Create Sample]
-    B --> C[Set Up Materials]
-    C --> D{Materials in Stock?}
-    D -->|Yes| F[Mark In House]
-    D -->|No| E[Order Materials]
-    E --> F
-    F --> G[Approve Materials]
-    G --> H[Production]
-    H --> I[Inspection]
-    I --> J{QC Passed?}
-    J -->|No| H
-    J -->|Yes| K[Review Costs]
-    K --> L[Ship to Customer]
-    L --> M[Await Feedback]
-    M --> N{Customer Decision}
-    N -->|Approved| O[Convert to Production]
-    N -->|Changes| P[Revision]
-    N -->|Declined| Q[Archive]
-    P --> C
-```
+This guide covers how to use Sample Flow Nexus to manage samples. It explains system codes, field definitions, status meanings, and step-by-step procedures.
 
 ---
 
-## Phase 1: Receiving a Sample Request
+## System Codes
 
-When a customer reaches out about a new sample, your first job is gathering the right information. A few minutes of good questions now saves days of back-and-forth later.
+### Sample Number Format
 
-### Information to Gather
+All samples are assigned an automatic number: **`SMP-YYYY-XXX`**
 
-| Category | What to Ask |
-|----------|-------------|
-| **Product** | What type of product? Bag, wallet, belt, accessory? |
-| **Style** | Design references, sketches, or images? |
-| **Materials** | Leather type? Color preferences? Hardware finish? |
-| **Size** | Dimensions? Multiple sizes needed? |
-| **Timeline** | When do they need the sample? |
-| **Budget** | Any target price point? |
+| Part | Meaning | Example |
+|------|---------|---------|
+| `SMP` | Sample prefix | SMP |
+| `YYYY` | Year created | 2026 |
+| `XXX` | Sequential number (resets each year) | 001, 002, 003... |
 
-### Questions to Ask Before Starting
+**Example:** `SMP-2026-042` = The 42nd sample created in 2026
 
-- Is this a new design or a modification of something existing?
-- Do you have a tech pack or specification sheet?
-- Are there specific materials you want us to source, or should we recommend?
-- Is this for a specific season or launch date?
-- How many sample units do you need?
+### Other System Codes
 
-<Warning>
-**Red Flags to Watch For**
-
-- **Unrealistic timelines**: "I need it in 3 days" for a complex item
-- **Vague specifications**: "Just make something nice"
-- **No reference materials**: Makes it hard to meet expectations
-- **Constantly changing requirements**: Get sign-off before starting
-
-Address these upfront. It's better to clarify now than remake the sample twice.
-</Warning>
+| Code | Record Type | Example |
+|------|-------------|---------|
+| `SMP` | Sample | SMP-2026-001 |
+| `PRD` | Production Order | PRD-2026-001 |
+| `PO` | Purchase Order | PO-2026-001 |
+| `JC` | Job Card | JC-2026-001 |
 
 ---
 
-## Phase 2: Creating the Sample in the System
+## Sample Statuses
 
-Once you have enough information, create the sample record.
+### Status Reference
 
-<Steps>
-  <Step title="Navigate to Samples">
-    From the main menu, click **Samples**, then click **New Sample** in the top right.
-  </Step>
-  <Step title="Fill in the basic details">
-    - **Customer**: Select from the dropdown (if new customer, contact admin to add them first)
-    - **Style Name**: Be descriptive. "Black Crossbody Bag with Gold Hardware" beats "Bag 1"
-    - **Delivery Date**: When the customer needs it. Add a few days buffer
-    - **Quantity**: Usually 1-2 for samples
-    - **Notes**: Any special requirements or context
-  </Step>
-  <Step title="Click Create">
-    The system will:
-    - Generate a unique sample number
-    - Create three material entries (Leather, Accessories, Lining)
-    - Set status to "New Sample"
-    - Start the activity log
-  </Step>
-  <Step title="Upload initial files">
-    Immediately after creation, go to the **Files** tab and upload:
-    - Customer worksheet or tech pack (category: Worksheets)
-    - Reference images (category: Images)
-    - Any email briefs or notes (category: Comments)
-  </Step>
-</Steps>
+| Status | Meaning | How It's Set |
+|--------|---------|--------------|
+| New Sample | Sample created, no materials ordered | Automatic on creation |
+| Procurement | At least one material is being ordered | Automatic when any material → "Ordered" |
+| In House | All materials received and approved | Automatic when all 3 materials → "Approved" |
+| Production | Sample is being manufactured | Manual |
+| Inspection | Sample complete, undergoing QC | Manual |
+| Ready to Ship | Passed QC, awaiting dispatch | Manual |
+| Shipped | Sent to customer | Manual |
+| On Hold | Paused | Manual |
+| Delay | Behind schedule | Manual, or automatic if past delivery date |
 
-<Tip>
-Don't skip the file uploads. Three months from now when the customer asks "what did we agree on?", you'll be glad everything is documented.
-</Tip>
+### Automatic Status Changes
+
+<Info>
+**The system changes sample status automatically in these cases:**
+
+1. When you change **any material** to "Ordered" → Sample becomes **"Procurement"**
+2. When **all three materials** are "Approved" → Sample becomes **"In House"**
+
+You don't need to manually update the sample status in these situations.
+</Info>
 
 ---
 
-## Phase 3: Setting Up Materials
+## Creating a Sample
 
-Every sample needs three material types configured. Even if one isn't applicable (e.g., no lining on a belt), still review each entry.
+**Location:** Sidebar → Samples → **+ New Sample** button
 
-### For Each Material Type
+### Form Fields
 
-<AccordionGroup>
-  <Accordion title="Leather">
-    Key specifications to enter:
-    - **Type**: Full grain, top grain, PU, bonded
-    - **Color**: Name and Pantone reference if available
-    - **Thickness**: In mm (e.g., 1.2mm)
-    - **Finish**: Matte, glossy, embossed, smooth
-    - **Supplier**: If you know who can provide it
-    - **Unit Rate**: Cost per unit (sq ft, piece, etc.)
-  </Accordion>
-  <Accordion title="Accessories">
-    Hardware and trims:
-    - **Type**: Zipper, buckle, snap, D-ring, etc.
-    - **Brand/Model**: YKK #5, etc.
-    - **Finish**: Gold, silver, antique brass, gunmetal
-    - **Specifications**: Size, weight, any special features
-    - **Unit Rate**: Cost per piece
-  </Accordion>
-  <Accordion title="Lining">
-    Interior materials:
-    - **Type**: Cotton, polyester, suede, etc.
-    - **Weight**: GSM if known
-    - **Color**: Should complement or contrast with leather
-    - **Composition**: 100% cotton, poly blend, etc.
-    - **Unit Rate**: Cost per meter or yard
-  </Accordion>
-</AccordionGroup>
+| Field | Required | What to Enter |
+|-------|----------|---------------|
+| Customer | Yes | Select from dropdown |
+| Style Name | Yes | Descriptive name for this sample |
+| Delivery Date | Yes | Target completion date |
+| Quantity | Yes | Number of sample units |
+| Notes | No | Additional information |
+| Stitcher Rate | No | Labor rate for stitching (PKR) |
+| Fuser Rate | No | Labor rate for fusing (PKR) |
 
-### Decision Point: Stock or Order?
+<Info>
+**What the system does when you click Save:**
+
+1. Generates sample number (SMP-YYYY-XXX)
+2. Creates 3 material records: Leather, Accessories, Lining
+3. Sets all material statuses to "Not Ordered"
+4. Sets sample status to "New Sample"
+5. Logs creation in Activity tab
+6. Redirects to Sample Detail page
+</Info>
+
+---
+
+## Sample Detail Page
+
+### Page Layout
+
+**Header Section:**
+- Sample number (e.g., SMP-2026-042)
+- Style name
+- Customer name
+- Status badge
+- Action buttons
+
+**Action Buttons:**
+
+| Button | What It Does |
+|--------|--------------|
+| Edit | Open edit form for sample details |
+| Change Status | Open status dropdown |
+| Archive | Archive this sample |
+| Move to Production | Convert to production order (only visible when all materials approved) |
+
+**Tabs:**
+
+| Tab | Contents |
+|-----|----------|
+| Overview | Basic info, dates, notes, labor rates |
+| Materials | The 3 material cards |
+| Files | Uploaded documents and images |
+| Activity | History of all changes |
+
+**Below Tabs:** Landed Cost card
+
+---
+
+## Materials Section
+
+**Location:** Sample Detail → Materials tab
+
+### The Three Materials
+
+Every sample has exactly 3 materials (created automatically):
+
+| Material | Purpose |
+|----------|---------|
+| Leather | Main outer material |
+| Accessories | Hardware, zips, buckles, trims |
+| Lining | Interior material |
+
+### Editing a Material
+
+1. Click on the material card
+2. Edit dialog opens
+3. Update fields
+4. Click Save
+
+### Common Fields (All Materials)
+
+| Field | Description |
+|-------|-------------|
+| Status | Current status in workflow |
+| Supplier | Supplier name |
+| Unit Rate | Cost per unit (PKR) |
+| Quantity | Amount needed |
+| Expected Delivery | When you expect it |
+| Actual Delivery | When it arrived |
+| Notes | Additional notes |
+
+### Leather-Specific Fields
+
+| Field | Options/Format |
+|-------|----------------|
+| Leather Type | Full Grain, Top Grain, Split, PU, Bonded |
+| Color | Text field |
+| Pantone Shade | Pantone code (e.g., 19-4052) |
+| Thickness | Number in mm (e.g., 1.2) |
+| Finish | Matte, Glossy, Semi-Gloss, Embossed |
+
+### Accessories-Specific Fields
+
+| Field | Options/Format |
+|-------|----------------|
+| Accessory Type | Zipper, Buckle, Snap, D-Ring, Rivet, Clasp, Other |
+| Brand | Text field (e.g., YKK) |
+| Model | Text field (e.g., #5 Metal) |
+| Specifications | Text field for details |
+
+### Lining-Specific Fields
+
+| Field | Options/Format |
+|-------|----------------|
+| Lining Type | Cotton, Polyester, Suede, Satin, Canvas |
+| Weight | Number in GSM |
+| Composition | Text field (e.g., 100% Cotton) |
+
+---
+
+## Material Statuses
+
+### Status Reference
+
+| Status | Meaning | When to Use |
+|--------|---------|-------------|
+| Not Ordered | Default state | Material not yet ordered |
+| Ordered | PO sent to supplier | After placing order |
+| Started | Supplier is working on it | When supplier confirms production started |
+| In Transit | Shipped from supplier | When tracking shows shipped |
+| In House | Physically received at factory | When material arrives |
+| Approved | Passed quality check | After inspecting and accepting |
+| Delay | Running late | When behind expected delivery |
+| On Hold | Paused | When waiting on something |
+| Sent Back | Returned to supplier | If material rejected |
+
+### Status Flow
 
 ```mermaid
 flowchart LR
-    A[Material Needed] --> B{In Stock?}
-    B -->|Yes| C[Skip to In House]
-    B -->|No| D[Proceed to Procurement]
-    B -->|Partial| E[Order Remainder]
+    A[Not Ordered] --> B[Ordered]
+    B --> C[Started]
+    C --> D[In Transit]
+    D --> E[In House]
+    E --> F[Approved]
+
+    B -.-> G[Delay]
+    C -.-> G
+    D -.-> G
+
+    E -.-> H[Sent Back]
+    H -.-> B
+
+    A -.-> I[On Hold]
+    B -.-> I
 ```
 
-If you already have the material in the warehouse, you can skip ahead and mark it as "In House" immediately.
+**Normal flow:** Not Ordered → Ordered → Started → In Transit → In House → Approved
+
+**Exception paths:**
+- Delay: Can occur from Ordered, Started, or In Transit
+- Sent Back: From In House, returns to Ordered when replacement ships
+- On Hold: Can pause from Not Ordered or Ordered
 
 ---
 
-## Phase 4: Procurement - Ordering Materials
+## Changing Statuses
 
-For materials you need to order, follow this process.
+### To Change Sample Status
 
 <Steps>
-  <Step title="Update status to Ordered">
-    Open the material card and change status from "Not Ordered" to **Ordered**. Fill in:
-    - **Supplier**: Who you're ordering from
-    - **Unit Rate**: Agreed price
-    - **Quantity**: How much you need
-    - **Expected Delivery**: When it should arrive
-    - **PO Number**: If you have one
+  <Step title="Open sample">
+    Go to Samples → Click on the sample
   </Step>
-  <Step title="Create or upload Purchase Order">
-    If a formal PO is needed:
-    - Create it in the procurement module, OR
-    - Upload an existing PO document to the sample's Files (category: Purchase Orders)
-
-    The PO may need approval depending on your company's workflow.
+  <Step title="Click status badge or Change Status button">
+    Located in the header area
   </Step>
-  <Step title="Track the order">
-    Update the status as the order progresses:
-    - **Started**: Supplier confirms they're working on it
-    - **In Transit**: Material has shipped
-    - **Delay**: If there's a significant hold-up (add notes explaining why)
+  <Step title="Select new status">
+    Choose from dropdown
+  </Step>
+  <Step title="Add note (optional)">
+    Explain the change if needed
   </Step>
 </Steps>
 
-### Handling Procurement Issues
-
-| Issue | Action |
-|-------|--------|
-| Supplier can't deliver | Find alternative supplier, update the record |
-| Price changed | Update unit_rate, add note explaining change |
-| Quality concerns from supplier | Document concerns, consider backup options |
-| Delivery delayed | Update expected date, communicate to customer if it affects timeline |
-
-<Info>
-Keep notes updated as things change. Your future self (and colleagues) will thank you when questions arise later.
-</Info>
-
----
-
-## Phase 5: Receiving Materials
-
-When materials arrive at the factory, don't just update the system—inspect first.
+### To Change Material Status
 
 <Steps>
-  <Step title="Physical inspection">
-    Before marking anything as received:
-    - Check against the specifications you ordered
-    - Verify quantities match
-    - Look for defects, damage, or color variations
-    - Take photos for your records
+  <Step title="Open sample">
+    Go to Samples → Click on the sample
   </Step>
-  <Step title="Update system to In House">
-    If the material looks good:
-    - Change status to **In House**
-    - Record the actual delivery date
-    - Add notes about condition if relevant
+  <Step title="Go to Materials tab">
+    Click Materials in the tab bar
   </Step>
-  <Step title="Quality decision">
-    Make the call:
-    - **Good to use** → Change status to **Approved**
-    - **Minor issues but usable** → Approve with notes
-    - **Not acceptable** → Keep as "In House" and contact supplier, OR mark as **Sent Back** if returning
+  <Step title="Click on the material card">
+    Leather, Accessories, or Lining
   </Step>
-</Steps>
-
-<Info>
-**Automatic Status Update**
-
-When all three materials (Leather, Accessories, Lining) reach **Approved** status, the sample automatically moves from "New Sample" or "Procurement" to **In House**. This signals that production can begin.
-</Info>
-
----
-
-## Phase 6: Sample Production
-
-With all materials approved and in-house, it's time to make the sample.
-
-<Steps>
-  <Step title="Prepare for production">
-    - Confirm all materials are physically available (not just system status)
-    - Review the specifications one more time
-    - Brief the pattern master or production team on any special requirements
+  <Step title="Change Status field">
+    Select new status from dropdown
   </Step>
-  <Step title="Update sample status">
-    Change the sample status from "In House" to **Production**. Add a note about:
-    - Who is making it
-    - Expected completion date
+  <Step title="Update related fields">
+    If changing to "Ordered": enter Supplier, Unit Rate, Expected Delivery
+    If changing to "In House": enter Actual Delivery
   </Step>
-  <Step title="Monitor progress">
-    During production:
-    - Check in on progress
-    - Answer any questions from the production team
-    - Document any decisions or changes made
-  </Step>
-  <Step title="Production complete">
-    When the physical sample is finished:
-    - Update status to **Inspection**
-    - The sample is ready for quality check
-  </Step>
-</Steps>
-
-<Warning>
-**Don't Rush This Phase**
-
-A rushed sample often means a rejected sample. It's better to take an extra day and get it right than ship something that makes the customer question your quality.
-</Warning>
-
----
-
-## Phase 7: Quality Inspection
-
-Before anything goes to the customer, it gets inspected.
-
-<Steps>
-  <Step title="Internal QC check">
-    Review the sample against:
-    - Original specifications and tech pack
-    - Workmanship standards (stitching, edges, finishing)
-    - Material quality (matches what was approved)
-    - Functionality (zippers work, snaps close properly)
-  </Step>
-  <Step title="Document results">
-    - Take final photos from multiple angles
-    - Upload to Files (category: Images)
-    - Note any minor deviations from spec (and whether they're acceptable)
-  </Step>
-  <Step title="Pass or fail">
-    - **Passed** → Continue to shipping preparation
-    - **Failed** → Return to production with specific feedback on what needs fixing
-  </Step>
-</Steps>
-
-<Tip>
-Take photos in good lighting against a neutral background. These images may end up in customer presentations or production references.
-</Tip>
-
----
-
-## Phase 8: Costing Review
-
-Before marking the sample ready to ship, review the costs. This is your last chance to ensure the numbers are right.
-
-<Steps>
-  <Step title="Open Landed Cost section">
-    On the sample detail page, find the **Landed Cost** card. Review:
-    - Materials costs (should be populated from your material entries)
-    - Labor rates (stitcher_rate and fuser_rate)
-    - Any additional costs
-  </Step>
-  <Step title="Update rates if needed">
-    Based on actual production:
-    - Was this more complex than expected? Adjust rates accordingly
-    - These rates will carry over if the sample converts to production
-  </Step>
-  <Step title="Profitability check">
-    Compare your total cost to:
-    - What you quoted the customer (if applicable)
-    - Target margins for this product type
-
-    Flag any concerns now—it's easier to discuss with the customer before production than after.
+  <Step title="Save">
+    Click Save button
   </Step>
 </Steps>
 
 ---
 
-## Phase 9: Shipping the Sample
+## Files Section
 
-Time to get the sample to the customer.
+**Location:** Sample Detail → Files tab
+
+### File Categories
+
+| Category | Use For |
+|----------|---------|
+| Worksheets | Tech packs, specifications, patterns |
+| Images | Product photos, reference images, swatches |
+| Comments | Customer feedback, notes, markups |
+| Purchase Orders | Supplier PO documents |
+
+### Uploading Files
 
 <Steps>
-  <Step title="Prepare for shipping">
-    - Update status to **Ready to Ship**
-    - Package the sample appropriately (protect it!)
-    - Include any documentation: spec sheets, care cards, your business card
+  <Step title="Go to Files tab">
+    Sample Detail → Files
   </Step>
-  <Step title="Arrange shipment">
-    - For local: Use your standard courier
-    - For international: May need to create an export shipment with proper documentation
-    - Record the courier and tracking number
+  <Step title="Click Upload or drag file">
+    Upload button or drag-and-drop area
   </Step>
-  <Step title="Update and notify">
-    - Change status to **Shipped**
-    - Add tracking information to notes
-    - Send the customer an email with tracking details
+  <Step title="Select category">
+    Choose: Worksheets, Images, Comments, or Purchase Orders
+  </Step>
+  <Step title="Add description (optional)">
+    Brief description of the file
+  </Step>
+  <Step title="Click Upload">
+    File uploads and appears in list
   </Step>
 </Steps>
 
----
+### Supported Formats
 
-## Phase 10: Awaiting Feedback
+| Category | Formats |
+|----------|---------|
+| Worksheets | PDF, XLSX, XLS, DOCX, DOC |
+| Images | PNG, JPG, JPEG, WEBP, GIF |
+| Comments | PDF, DOCX, TXT |
+| Purchase Orders | PDF, XLSX |
 
-The sample is in transit. Now you wait.
+**Maximum file size:** 25MB
 
-- Monitor delivery status
-- Follow up with the customer 2-3 days after delivery
-- Document any feedback in the sample notes
-- Upload any marked-up images or comments from the customer to Files
+### File Versioning
 
-<Tip>
-Don't just wait passively. A quick "Did you receive the sample? Any initial thoughts?" shows professionalism and keeps the conversation moving.
-</Tip>
+When you upload a new version of a file:
+- New file is marked as **Latest**
+- Previous file is marked as **Previous**
+- Both versions are kept
 
----
-
-## Phase 11: Customer Decision
-
-This is where the sample journey concludes—in one of three ways.
-
-<AccordionGroup>
-  <Accordion title="Outcome A: Approved → Convert to Production">
-    The customer loves it and wants to proceed!
-
-    **Step 1: Confirm production details**
-    - Final quantities (with size breakdown if applicable)
-    - Delivery timeline
-    - Any small modifications from the sample
-    - Pricing confirmation
-
-    **Step 2: Convert to Production Order**
-    - Click **Convert to Production** on the sample
-    - Enter the size/quantity breakdown
-    - Set the delivery date
-    - Labor rates carry over automatically
-
-    **Step 3: Sample lifecycle complete**
-    - The sample record stays as a reference
-    - A new production order is created and linked
-    - Continue in the Production module
-  </Accordion>
-
-  <Accordion title="Outcome B: Changes Requested → Revision">
-    The customer wants modifications before committing.
-
-    **Step 1: Document the changes**
-    - Add detailed notes on what needs changing
-    - Upload any marked-up images from the customer
-    - Clarify anything ambiguous before starting
-
-    **Step 2: Decide on approach**
-    - **Minor changes**: Modify the existing sample
-    - **Major changes**: May need to create a new sample
-
-    **Step 3: If modifying same sample**
-    - Update status back to the appropriate phase
-    - Update material specs if needed
-    - Re-order materials if required
-    - Go through production and inspection again
-
-    **Step 4: If creating new sample**
-    - Create a new sample record
-    - Reference the original in the notes (e.g., "Revision of SAMPLE-001")
-    - Start from Phase 2 with the new requirements
-  </Accordion>
-
-  <Accordion title="Outcome C: Declined → Archive">
-    It happens. Not every sample converts.
-
-    **Step 1: Understand why**
-    - Document the reason: price, timing, design, found alternative?
-    - This helps improve future quotes and designs
-
-    **Step 2: Archive the sample**
-    - Change status to **Archived** (or use your company's equivalent)
-    - Add final notes summarizing the outcome
-
-    **Step 3: Learn from it**
-    - What could have been done differently?
-    - Were there early warning signs?
-    - Any feedback to share with the team?
-  </Accordion>
-</AccordionGroup>
+To upload a new version: Click on existing file → **Upload New Version**
 
 ---
 
-## Handling Special Situations
+## Landed Cost Section
 
-Real life doesn't always follow the happy path. Here's how to handle common complications.
+**Location:** Sample Detail page → Landed Cost card (below tabs)
 
-### Sample On Hold
+### Fields
 
-**When**: Waiting for customer decision, material availability issues, capacity constraints
+| Field | Description | Editable |
+|-------|-------------|----------|
+| Materials Cost | Sum of all 3 material costs | Auto-calculated |
+| Stitcher Rate | Rate per unit for stitching | Yes |
+| Fuser Rate | Rate per unit for fusing | Yes |
+| Labor Cost | (Stitcher + Fuser) × Quantity | Auto-calculated |
+| Additional Costs | Other costs you add | Yes |
+| Total Cost | Materials + Labor + Additional | Auto-calculated |
+| Per Unit Cost | Total ÷ Quantity | Auto-calculated |
 
-**How**: Change sample status to **On Hold**
+### Currency Display
 
-**What to do**:
-- Add notes explaining why it's on hold
-- Set a reminder to follow up
-- Communicate with the customer if they're affected
+Costs display in both:
+- **PKR** (Pakistani Rupee) - primary
+- **GBP** (British Pound) - converted
 
-**Resolution**: Change back to the appropriate active status when the hold is resolved
+Exchange rate shown at top of card and updates automatically.
 
-### Significant Delays
+### Calculation
 
-**When**: Sample is running behind the expected timeline
-
-**What to do**:
-- Update expected dates in the system
-- Communicate proactively with the customer
-- Identify the bottleneck and address it
-- Document what caused the delay (helps prevent repeat issues)
-
-### Material Sent Back
-
-**When**: Material failed inspection and needs to return to supplier
-
-**How**: Change material status to **Sent Back**
-
-**Impact**: Sample typically goes on hold until replacement arrives
-
-**Next steps**:
-- Contact supplier immediately
-- Document the quality issue (photos help)
-- Arrange replacement
-- Consider backup suppliers for future
-
-### Urgent/Rush Samples
-
-Some samples need to jump the queue.
-
-- Mark urgency clearly in notes
-- Communicate with the production team
-- Don't skip quality steps—parallel processing is fine, shortcuts on QC aren't
-- Keep the customer updated more frequently than usual
-
-<Warning>
-Rush requests should be the exception, not the rule. If every sample is "urgent," nothing is.
-</Warning>
-
----
-
-## Complete Workflow Summary
-
-```mermaid
-flowchart TD
-    subgraph Request
-        A[Customer Request] --> B[Gather Requirements]
-        B --> C[Create Sample]
-    end
-
-    subgraph Materials
-        C --> D[Configure Materials]
-        D --> E{Need to Order?}
-        E -->|Yes| F[Order & Track]
-        E -->|No| G[Mark In House]
-        F --> G
-        G --> H[Inspect & Approve]
-    end
-
-    subgraph Production
-        H --> I[Make Sample]
-        I --> J[QC Inspection]
-        J --> K{Passed?}
-        K -->|No| I
-        K -->|Yes| L[Review Costs]
-    end
-
-    subgraph Delivery
-        L --> M[Ship Sample]
-        M --> N[Customer Review]
-    end
-
-    subgraph Outcome
-        N --> O{Decision}
-        O -->|Approved| P[Production Order]
-        O -->|Changes| Q[Revision]
-        O -->|Declined| R[Archive]
-        Q --> D
-    end
+```
+Materials Cost = Leather cost + Accessories cost + Lining cost
+Labor Cost = (Stitcher Rate × Qty) + (Fuser Rate × Qty)
+Total Cost = Materials + Labor + Additional
+Per Unit = Total ÷ Quantity
 ```
 
 ---
 
-## Quick Reference Checklist
+## Converting to Production
 
-Use this to track progress on any sample:
+**Button Location:** Sample Detail → Header → **Move to Production**
 
-- [ ] Sample request received and requirements documented
-- [ ] Sample created in system with correct details
-- [ ] Customer worksheet/specs uploaded to Files
-- [ ] All three material specifications entered
-- [ ] Materials ordered (if not in stock)
-- [ ] Materials received and physically inspected
-- [ ] All materials marked as Approved
-- [ ] Sample status moved to Production
-- [ ] Sample manufactured
-- [ ] QC inspection completed and passed
-- [ ] Landed cost reviewed and rates confirmed
-- [ ] Sample shipped with tracking provided to customer
-- [ ] Customer feedback received and documented
-- [ ] Final outcome recorded: **Production** / **Revision** / **Archived**
+<Warning>
+**Prerequisite:** All three materials must have status "Approved" before this button appears.
+</Warning>
+
+### Conversion Steps
+
+<Steps>
+  <Step title="Verify materials">
+    Check all 3 materials show "Approved" status
+  </Step>
+  <Step title="Click Move to Production">
+    Button in sample header
+  </Step>
+  <Step title="Enter production details">
+    - Quantity (total units)
+    - Size breakdown (if applicable)
+    - Delivery date
+    - Customer PO number
+  </Step>
+  <Step title="Confirm">
+    Click Confirm to create production order
+  </Step>
+</Steps>
+
+### What Gets Created
+
+<Info>
+**The system automatically:**
+
+1. Creates new production order (PRD-YYYY-XXX)
+2. Copies sample details, material specs, labor rates
+3. Links production order to this sample
+4. Sample remains viewable as reference
+</Info>
+
+---
+
+## Common Scenarios
+
+| Situation | Action in App |
+|-----------|---------------|
+| Material arrived at factory | Materials tab → Click material → Status = "In House" → Save |
+| Material passed inspection | Materials tab → Click material → Status = "Approved" → Save |
+| Supplier reports delay | Materials tab → Click material → Status = "Delay" → Update Expected Delivery → Save |
+| Material failed QC | Materials tab → Click material → Status = "Sent Back" → Add note → Save |
+| Need to pause sample | Header → Change Status → "On Hold" → Add note |
+| Sample manufacturing started | Header → Change Status → "Production" |
+| Sample finished, needs QC | Header → Change Status → "Inspection" |
+| Sample passed QC | Header → Change Status → "Ready to Ship" |
+| Sample dispatched | Header → Change Status → "Shipped" → Add tracking to notes |
+| Customer approved, ready for bulk | Header → Move to Production → Enter details → Confirm |
+| Customer wants changes | Add note with changes → Status = "On Hold" if pausing |
+| Sample cancelled | Header → Archive → Select reason |
+
+---
+
+## Troubleshooting
+
+| Problem | Cause | Solution |
+|---------|-------|----------|
+| "Move to Production" button not visible | Not all materials are "Approved" | Change all 3 materials to "Approved" status |
+| Sample stuck on "New Sample" | No materials have been ordered | Change at least one material to "Ordered" |
+| Sample stuck on "Procurement" | Materials not all approved | Approve remaining materials |
+| Can't change material status | Dialog not saving | Check required fields are filled |
+| File won't upload | File too large | Reduce file size to under 25MB |
+| File won't upload | Unsupported format | Convert to supported format |
+| Landed cost showing wrong | Material costs not entered | Enter Unit Rate and Quantity for each material |
+| Customer not in dropdown | Customer not added to system | Contact admin to add customer |
+
+---
+
+## Quick Reference
+
+### Button Locations
+
+| Action | Location |
+|--------|----------|
+| Create new sample | Sidebar → Samples → + New Sample |
+| Edit sample details | Sample Detail → Edit button |
+| Change sample status | Sample Detail → Status badge or Change Status button |
+| Edit material | Sample Detail → Materials tab → Click card |
+| Upload file | Sample Detail → Files tab → Upload |
+| View activity log | Sample Detail → Activity tab |
+| Convert to production | Sample Detail → Move to Production button |
+| Archive sample | Sample Detail → Archive button |
+
+### Status Colors
+
+| Status | Color |
+|--------|-------|
+| New Sample | Gray |
+| Procurement | Blue |
+| In House | Purple |
+| Production | Orange |
+| Inspection | Yellow |
+| Ready to Ship | Teal |
+| Shipped | Green |
+| On Hold | Gray |
+| Delay | Red |
 
 ---
 
@@ -562,21 +479,15 @@ Use this to track progress on any sample:
 
 <CardGroup cols={2}>
   <Card title="Creating Samples" icon="plus" href="/samples/creating-samples">
-    Detailed field reference for sample creation
+    Detailed field reference
   </Card>
   <Card title="Material Workflow" icon="arrows-rotate" href="/samples/material-workflow">
-    In-depth guide to material statuses
+    Material status details
   </Card>
   <Card title="Uploading Files" icon="upload" href="/samples/uploading-files">
-    File management and best practices
+    File management guide
   </Card>
   <Card title="Landed Costs" icon="calculator" href="/samples/landed-costs">
-    Understanding sample costing
-  </Card>
-  <Card title="Sample to Production" icon="arrow-right-to-bracket" href="/samples/sample-to-production">
-    Conversion process details
-  </Card>
-  <Card title="Samples Overview" icon="swatchbook" href="/samples/overview">
-    Quick reference for the samples module
+    Cost calculation details
   </Card>
 </CardGroup>
