@@ -1,0 +1,412 @@
+---
+title: "Shipment Detail Page"
+description: "Complete guide to the Shipment Detail page in Mac Leather Dashboard"
+icon: "rectangle-list"
+---
+
+# Shipment Detail Page
+
+This guide explains every section of the Shipment Detail page—where to find information, what each field means, and how to perform actions.
+
+**Access:** Sidebar → Exports → Click on any shipment
+
+---
+
+## Header Section
+
+The header displays key shipment information and action buttons.
+
+### Information Displayed
+
+| Element | Description |
+|---------|-------------|
+| Shipment Reference | Unique shipment identifier |
+| Type Badge | Sample / Production / Mixed (colored badge) |
+| Status Badge | Current status (Draft, Planning, Ready to Ship, Shipped, Delivered) |
+| Customer | Customer name |
+
+### Action Buttons
+
+| Button | What It Does | When Available |
+|--------|--------------|----------------|
+| Edit | Edit shipment details | Draft, Planning |
+| Add Items | Add samples or production orders | Draft, Planning |
+| Carton Planning | Open carton planning interface | Planning |
+| Generate Documents | Generate packing list/invoice | Ready to Ship |
+| Mark Shipped | Change status to Shipped | Ready to Ship |
+| Mark Delivered | Change status to Delivered | Shipped |
+
+---
+
+## Overview Tab
+
+**Location:** Shipment Detail → Overview (default tab)
+
+Shows basic shipment information.
+
+### Fields
+
+| Field | What It Shows |
+|-------|---------------|
+| Shipment Type | Sample / Production / Mixed |
+| Customer | Customer name |
+| Transport Method | Air Freight / Sea Freight / Courier |
+| Delivery Date | Target arrival date |
+| Ship Date | Planned ship date |
+| Notes | Additional information |
+| Created | Date shipment was created |
+| Created By | User who created the shipment |
+
+### Editing
+
+<Steps>
+  <Step title="Click Edit button">
+    In header area
+  </Step>
+  <Step title="Update fields">
+    Modify any editable fields
+  </Step>
+  <Step title="Save">
+    Click Save to apply changes
+  </Step>
+</Steps>
+
+---
+
+## Items Tab
+
+**Location:** Shipment Detail → Items tab
+
+Shows all items (samples or production orders) included in this shipment.
+
+### Columns Displayed
+
+| Column | What It Shows |
+|--------|---------------|
+| Reference | Sample (SMP-) or Production (PRD-) number |
+| Type | Sample / Production |
+| Style | Style name |
+| Quantity | Number of units |
+| Value | Item value |
+| Status | Item status |
+
+### Adding Items
+
+<Steps>
+  <Step title="Click Add Items button">
+    In header or Items tab
+  </Step>
+  <Step title="Select item type">
+    Choose Sample or Production Order
+  </Step>
+  <Step title="Search and select">
+    Find items by reference number or style
+  </Step>
+  <Step title="Confirm">
+    Click Add to include in shipment
+  </Step>
+</Steps>
+
+### Removing Items
+
+<Steps>
+  <Step title="Find the item">
+    In the Items list
+  </Step>
+  <Step title="Click Remove">
+    X button or Remove action
+  </Step>
+  <Step title="Confirm">
+    Confirm removal
+  </Step>
+</Steps>
+
+<Warning>
+You can only add/remove items when shipment is in Draft or Planning status.
+</Warning>
+
+### Viewing Source
+
+Click on any item reference (SMP-XXXX or PRD-XXXX) to open the source sample or production order.
+
+---
+
+## Cartons Tab
+
+**Location:** Shipment Detail → Cartons tab
+
+Shows carton planning information and efficiency.
+
+### Carton List
+
+| Column | What It Shows |
+|--------|---------------|
+| Carton # | Carton 1, Carton 2, Carton 3... |
+| Dimensions | L × W × H (cm) |
+| Items | What's packed in this carton |
+| Quantity | Units in carton |
+| Weight | Total weight (kg) |
+| Efficiency | Space utilization percentage |
+
+### Overall Efficiency
+
+Displays at the top of the Cartons tab:
+
+| Indicator | Meaning |
+|-----------|---------|
+| Green (90%+) | Good efficiency |
+| Yellow (70-89%) | Acceptable |
+| Red (<70%) | Needs optimization |
+
+<Info>
+Target efficiency is **90% or higher**. This means cartons are well-packed without wasted space.
+</Info>
+
+### Actions
+
+| Button | What It Does |
+|--------|--------------|
+| Plan Cartons | Open carton planning interface |
+| Add Carton | Add a new empty carton |
+| Print Labels | Generate carton labels |
+
+See [Carton Planning Guide](/exports/carton-planning) for detailed instructions.
+
+---
+
+## Documents Tab
+
+**Location:** Shipment Detail → Documents tab
+
+Manage all export documents for this shipment.
+
+### Document List
+
+| Document | Status | Actions |
+|----------|--------|---------|
+| Packing List | Generated / Not Generated | Generate, Download, Print |
+| Commercial Invoice | Generated / Not Generated | Generate, Download, Print |
+| Certificate of Origin | Uploaded / Not Uploaded | Upload, Download |
+| Bill of Lading | Uploaded / Not Uploaded | Upload, Download |
+
+### Generating Documents
+
+<Steps>
+  <Step title="Go to Documents tab">
+    Shipment Detail → Documents
+  </Step>
+  <Step title="Click Generate">
+    Next to Packing List or Commercial Invoice
+  </Step>
+  <Step title="Review preview">
+    Check the generated document
+  </Step>
+  <Step title="Download or Print">
+    Save or print the document
+  </Step>
+</Steps>
+
+### Uploading External Documents
+
+For documents generated outside the system (Certificate of Origin, Bill of Lading):
+
+<Steps>
+  <Step title="Click Upload">
+    Next to the document type
+  </Step>
+  <Step title="Select file">
+    Choose PDF or image file
+  </Step>
+  <Step title="Confirm upload">
+    File appears in document list
+  </Step>
+</Steps>
+
+See [Documents Guide](/exports/documents) for detailed information on each document type.
+
+---
+
+## Shipping Tab
+
+**Location:** Shipment Detail → Shipping tab
+
+Track shipment dispatch and delivery.
+
+### Tracking Information
+
+| Field | What to Enter |
+|-------|---------------|
+| Carrier | Shipping company (DHL, FedEx, Maersk, etc.) |
+| Tracking Number | AWB number or tracking code |
+| Ship Date | Actual date shipped |
+| Expected Arrival | Expected delivery date |
+| Actual Arrival | When customer received (after delivery) |
+
+### Status History
+
+Shows all status changes:
+
+| Date | Status | Changed By |
+|------|--------|------------|
+| Timestamp | New status | User name |
+
+### Marking as Shipped
+
+<Steps>
+  <Step title="Click Mark Shipped">
+    Button in header (when Ready to Ship)
+  </Step>
+  <Step title="Enter tracking details">
+    Carrier, tracking number, ship date
+  </Step>
+  <Step title="Confirm">
+    Status changes to Shipped
+  </Step>
+</Steps>
+
+### Marking as Delivered
+
+<Steps>
+  <Step title="Click Mark Delivered">
+    Button in header (when Shipped)
+  </Step>
+  <Step title="Enter arrival date">
+    Actual delivery date
+  </Step>
+  <Step title="Confirm">
+    Status changes to Delivered
+  </Step>
+</Steps>
+
+---
+
+## Landed Cost Section
+
+**Location:** Shipment Detail → Below tabs (Landed Cost card)
+
+Shows total shipment value and cost breakdown.
+
+### Information Displayed
+
+| Field | Description |
+|-------|-------------|
+| Total Items Value | Sum of all item values |
+| Shipping Cost | Freight/courier cost (if entered) |
+| Insurance | Insurance cost (if applicable) |
+| Total Shipment Value | Grand total |
+| FOB / CIF | Pricing terms |
+
+### Currency Display
+
+Values shown in:
+- **PKR** (Pakistani Rupee)
+- **GBP** (British Pound)
+
+Exchange rate displayed and auto-updated.
+
+<Info>
+Landed costs are pulled from the source samples and production orders. To change values, edit the source records.
+</Info>
+
+---
+
+## Activity Tab
+
+**Location:** Shipment Detail → Activity tab
+
+Complete history of all changes to this shipment.
+
+### Events Logged
+
+| Event Type | What's Recorded |
+|------------|-----------------|
+| Status Changes | When and who changed status |
+| Items Added/Removed | What was added or removed |
+| Documents Generated | When documents were created |
+| Edits | Field changes |
+| Carton Changes | Carton planning updates |
+
+---
+
+## Common Scenarios
+
+| Situation | Action |
+|-----------|--------|
+| Need to add more items | Items tab → Add Items button |
+| Need to plan cartons | Cartons tab → Plan Cartons button |
+| Need to generate packing list | Documents tab → Generate (Packing List) |
+| Need to generate invoice | Documents tab → Generate (Commercial Invoice) |
+| Shipment ready to send | Header → Mark Shipped → Enter tracking |
+| Customer received goods | Header → Mark Delivered |
+| Need to upload Bill of Lading | Documents tab → Upload (Bill of Lading) |
+| Check shipment history | Activity tab |
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Can't add items to shipment">
+    **Cause:** Shipment status is Ready to Ship, Shipped, or Delivered.
+
+    **Solution:** Items can only be added in Draft or Planning status. If you need to add items, the shipment status must be changed (contact admin).
+  </Accordion>
+
+  <Accordion title="Generate button not working">
+    **Cause:** Missing required information (items, cartons, or customer details).
+
+    **Solution:**
+    1. Check Items tab has items added
+    2. Check Cartons tab has cartons planned
+    3. Verify customer information is complete
+  </Accordion>
+
+  <Accordion title="Packing list showing wrong items">
+    **Cause:** Items or carton assignments are incorrect.
+
+    **Solution:** Review Items tab and Cartons tab. Ensure items are assigned to cartons correctly.
+  </Accordion>
+
+  <Accordion title="Invoice showing wrong values">
+    **Cause:** Landed costs not set on source samples/production orders.
+
+    **Solution:** Go to each source item (click reference number) and verify landed costs are entered.
+  </Accordion>
+
+  <Accordion title="Can't mark as shipped">
+    **Cause:** Shipment not in Ready to Ship status, or missing required fields.
+
+    **Solution:** Change status to Ready to Ship first. Ensure all required documents are generated.
+  </Accordion>
+
+  <Accordion title="Item already in another shipment">
+    **Cause:** Trying to add an item that's already assigned to a different shipment.
+
+    **Solution:** An item can only be in one shipment. Check which shipment contains the item, or remove it from the other shipment first.
+  </Accordion>
+
+  <Accordion title="Cartons tab is empty">
+    **Cause:** Carton planning not done yet.
+
+    **Solution:** Click Plan Cartons or Add Carton to start planning.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Related Guides
+
+<CardGroup cols={2}>
+  <Card title="Complete Workflow" icon="route" href="/exports/complete-workflow">
+    Step-by-step shipment process
+  </Card>
+  <Card title="Carton Planning" icon="box" href="/exports/carton-planning">
+    Detailed carton planning guide
+  </Card>
+  <Card title="Documents" icon="file-pdf" href="/exports/documents">
+    Document generation details
+  </Card>
+  <Card title="Shipping" icon="truck" href="/exports/shipping">
+    Tracking and delivery
+  </Card>
+</CardGroup>

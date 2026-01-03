@@ -1,0 +1,323 @@
+---
+title: "Carton Planning"
+description: "How to plan cartons for shipments in Mac Leather Dashboard"
+icon: "box"
+---
+
+# Carton Planning
+
+Carton planning determines how items are packed into boxes for shipping. Good carton planning maximizes space usage and ensures items are protected during transit.
+
+---
+
+## Where to Find It
+
+**Location:** Shipment Detail → **Cartons** tab → **Plan Cartons**
+
+Or click **Carton Planning** button in shipment header.
+
+---
+
+## Setting Carton Dimensions
+
+Each carton needs dimensions set before adding items.
+
+### Creating a Carton
+
+<Steps>
+  <Step title="Go to Cartons tab">
+    Shipment Detail → Cartons
+  </Step>
+  <Step title="Click Add Carton">
+    Opens new carton form
+  </Step>
+  <Step title="Enter dimensions">
+    Length, Width, Height in centimeters
+  </Step>
+  <Step title="Enter max weight (optional)">
+    Weight limit in kg
+  </Step>
+  <Step title="Save">
+    Carton created and ready for items
+  </Step>
+</Steps>
+
+### Dimension Fields
+
+| Field | Unit | Description |
+|-------|------|-------------|
+| Length | cm | Carton length |
+| Width | cm | Carton width |
+| Height | cm | Carton height |
+| Max Weight | kg | Maximum allowed weight |
+| Tare Weight | kg | Empty carton weight |
+
+<Info>
+Standard carton sizes are often pre-configured. Check if a template matches your needs before creating custom dimensions.
+</Info>
+
+---
+
+## Adding Items to Cartons
+
+### Method 1: Drag and Drop
+
+<Steps>
+  <Step title="View unassigned items">
+    Listed in "Unassigned Items" section
+  </Step>
+  <Step title="Drag item">
+    Click and hold on item
+  </Step>
+  <Step title="Drop into carton">
+    Release over target carton
+  </Step>
+</Steps>
+
+### Method 2: Add Items Button
+
+<Steps>
+  <Step title="Click on carton">
+    Select the carton to add items to
+  </Step>
+  <Step title="Click Add Items">
+    Opens item selection
+  </Step>
+  <Step title="Select items">
+    Check items to add
+  </Step>
+  <Step title="Confirm">
+    Items assigned to carton
+  </Step>
+</Steps>
+
+### Moving Items Between Cartons
+
+<Steps>
+  <Step title="Find the item">
+    In current carton
+  </Step>
+  <Step title="Click Move or drag">
+    Drag to new carton, or use Move button
+  </Step>
+  <Step title="Select destination">
+    Choose target carton
+  </Step>
+</Steps>
+
+---
+
+## Efficiency Percentage
+
+Efficiency shows how well carton space is being used.
+
+### How It's Calculated
+
+```
+Efficiency = (Volume of Items ÷ Carton Volume) × 100
+```
+
+### Efficiency Indicators
+
+| Percentage | Color | Meaning |
+|------------|-------|---------|
+| 90%+ | Green | Excellent - well packed |
+| 70-89% | Yellow | Acceptable |
+| Below 70% | Red | Poor - wasted space |
+
+### Overall Shipment Efficiency
+
+Displayed at top of Cartons tab:
+
+```
+Overall Efficiency = Average efficiency of all cartons
+```
+
+<Info>
+**Target: 90% or higher**
+
+Higher efficiency means:
+- Lower shipping costs (fewer cartons)
+- Better protection (less movement inside)
+- More professional presentation
+</Info>
+
+### Improving Efficiency
+
+| Problem | Solution |
+|---------|----------|
+| Low efficiency (large carton, few items) | Use smaller carton |
+| Can't fit more items | Items may be bulky - check dimensions |
+| Many partially-filled cartons | Consolidate items into fewer cartons |
+
+---
+
+## Weight Limits
+
+### Setting Weight Limits
+
+When creating a carton, enter the **Max Weight** field.
+
+### Weight Warnings
+
+| Warning | Meaning |
+|---------|---------|
+| Yellow | Approaching weight limit (80%+) |
+| Red | Over weight limit |
+
+<Warning>
+Do not exceed weight limits. Overweight cartons may be rejected by carriers or incur surcharges.
+</Warning>
+
+### Checking Carton Weight
+
+Each carton displays:
+- **Current Weight**: Sum of item weights
+- **Max Weight**: Weight limit set
+- **Remaining**: How much more can be added
+
+---
+
+## Generating Carton Labels
+
+### Printing Labels
+
+<Steps>
+  <Step title="Complete carton planning">
+    All items assigned to cartons
+  </Step>
+  <Step title="Click Print Labels">
+    Button at top of Cartons tab
+  </Step>
+  <Step title="Select cartons">
+    All or specific cartons
+  </Step>
+  <Step title="Print">
+    Labels ready for printing
+  </Step>
+</Steps>
+
+### Label Contents
+
+Each carton label includes:
+
+| Information | Description |
+|-------------|-------------|
+| Carton Number | 1 of 5, 2 of 5, etc. |
+| Shipment Reference | Shipment ID |
+| Customer | Customer name |
+| Dimensions | L × W × H |
+| Gross Weight | Total weight |
+| Contents Summary | What's inside |
+
+---
+
+## Carton Planning Interface
+
+### Layout
+
+| Section | Description |
+|---------|-------------|
+| Unassigned Items | Items not yet in any carton |
+| Carton List | All cartons with contents |
+| Efficiency Display | Overall and per-carton efficiency |
+| Actions | Add Carton, Print Labels, Save |
+
+### Carton Card Display
+
+Each carton shows:
+- Carton number
+- Dimensions (L × W × H)
+- Item count
+- Weight (current / max)
+- Efficiency percentage
+- Expand to see items
+
+---
+
+## Common Scenarios
+
+| Situation | Action |
+|-----------|--------|
+| Need another carton | Click Add Carton |
+| Item in wrong carton | Drag to correct carton or use Move |
+| Efficiency too low | Use smaller cartons or add more items |
+| Carton overweight | Remove items or split across cartons |
+| Need to delete empty carton | Click Delete on the carton |
+| Print labels for specific cartons | Print Labels → Select cartons |
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Items won't fit in carton">
+    **Cause:** Item dimensions exceed carton dimensions.
+
+    **Solution:**
+    1. Check item dimensions
+    2. Use a larger carton
+    3. If item is oversized, it may need its own carton
+  </Accordion>
+
+  <Accordion title="Efficiency showing very low">
+    **Cause:** Carton is too large for the items inside.
+
+    **Solution:**
+    1. Use a smaller carton
+    2. Add more items to the carton
+    3. Consolidate with other partially-filled cartons
+  </Accordion>
+
+  <Accordion title="Can't add item to carton">
+    **Cause:** Item already assigned to another carton, or weight limit exceeded.
+
+    **Solution:**
+    1. Check if item is in Unassigned Items list
+    2. If in another carton, move it first
+    3. Check carton weight limit
+  </Accordion>
+
+  <Accordion title="Weight shows as 0">
+    **Cause:** Item weights not set on source records.
+
+    **Solution:** Go to source sample or production order and enter item weights.
+  </Accordion>
+
+  <Accordion title="Carton labels won't print">
+    **Cause:** Browser blocking popup, or print dialog issue.
+
+    **Solution:**
+    1. Allow popups for this site
+    2. Try Download instead of Print
+    3. Check printer connection
+  </Accordion>
+
+  <Accordion title="Deleted carton by accident">
+    **Cause:** Clicked Delete.
+
+    **Solution:** Items return to Unassigned. Create new carton and reassign items.
+  </Accordion>
+
+  <Accordion title="Changes not saving">
+    **Cause:** Network issue or session expired.
+
+    **Solution:**
+    1. Click Save manually
+    2. Refresh page and re-login if needed
+    3. Redo changes if lost
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Related Guides
+
+<CardGroup cols={2}>
+  <Card title="Shipment Detail" icon="rectangle-list" href="/exports/shipment-detail">
+    Full page reference
+  </Card>
+  <Card title="Documents" icon="file-pdf" href="/exports/documents">
+    Generating packing lists with carton info
+  </Card>
+</CardGroup>

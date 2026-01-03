@@ -1,0 +1,307 @@
+---
+title: "Shipping & Tracking"
+description: "Managing shipment dispatch and tracking in Mac Leather Dashboard"
+icon: "truck"
+---
+
+# Shipping & Tracking
+
+Once a shipment is ready, mark it as shipped and track its journey to the customer.
+
+---
+
+## Transport Methods
+
+| Method | Typical Use | Transit Time |
+|--------|-------------|--------------|
+| **Air Freight** | Urgent shipments, samples | 3-7 days |
+| **Sea Freight** | Large production orders | 4-8 weeks |
+| **Courier** | Small packages, documents | 1-5 days |
+
+### Setting Transport Method
+
+Transport method is set when creating the shipment:
+
+1. Create new shipment
+2. Select **Transport Method** from dropdown
+3. Options: Air Freight, Sea Freight, Courier
+
+To change transport method:
+- Shipment Detail → Edit → Update transport method
+
+---
+
+## Tracking Information
+
+**Location:** Shipment Detail → **Shipping** tab
+
+### Tracking Fields
+
+| Field | What to Enter | Example |
+|-------|---------------|---------|
+| Carrier | Shipping company | DHL, FedEx, Maersk |
+| Tracking Number | AWB or tracking reference | 1234567890 |
+| Ship Date | Actual dispatch date | 2026-01-15 |
+| Expected Arrival | Estimated delivery date | 2026-01-20 |
+| Actual Arrival | When customer received | 2026-01-19 |
+
+### Entering Tracking Information
+
+<Steps>
+  <Step title="Go to Shipping tab">
+    Shipment Detail → Shipping
+  </Step>
+  <Step title="Click Edit or enter fields">
+    Fields may be inline editable
+  </Step>
+  <Step title="Enter carrier">
+    Type carrier name
+  </Step>
+  <Step title="Enter tracking number">
+    AWB or reference from carrier
+  </Step>
+  <Step title="Enter dates">
+    Ship date and expected arrival
+  </Step>
+  <Step title="Save">
+    Tracking information saved
+  </Step>
+</Steps>
+
+---
+
+## Marking as Shipped
+
+When the shipment is dispatched, mark it as shipped.
+
+### Prerequisites
+
+Before marking shipped:
+- [ ] Status is "Ready to Ship"
+- [ ] All documents generated
+- [ ] Tracking information ready
+
+### Steps to Mark Shipped
+
+<Steps>
+  <Step title="Verify status is Ready to Ship">
+    Check status badge in header
+  </Step>
+  <Step title="Click Mark Shipped">
+    Button in header area
+  </Step>
+  <Step title="Enter shipping details">
+    Carrier, tracking number, ship date
+  </Step>
+  <Step title="Confirm">
+    Click confirm to update status
+  </Step>
+</Steps>
+
+<Info>
+**What the system does:**
+- Changes status to **Shipped**
+- Records ship date and time
+- Logs user who marked as shipped
+- Tracking info saved to shipment
+</Info>
+
+### Required Fields for Mark Shipped
+
+| Field | Required |
+|-------|----------|
+| Carrier | Yes |
+| Tracking Number | Yes |
+| Ship Date | Yes |
+| Expected Arrival | No |
+
+---
+
+## Delivery Confirmation
+
+When the customer receives the goods, mark the shipment as delivered.
+
+### Steps to Mark Delivered
+
+<Steps>
+  <Step title="Confirm customer received goods">
+    Email, call, or tracking shows delivered
+  </Step>
+  <Step title="Click Mark Delivered">
+    Button in header (when status is Shipped)
+  </Step>
+  <Step title="Enter actual arrival date">
+    When customer received the shipment
+  </Step>
+  <Step title="Add notes (optional)">
+    Any delivery notes
+  </Step>
+  <Step title="Confirm">
+    Status changes to Delivered
+  </Step>
+</Steps>
+
+<Info>
+**What the system does:**
+- Changes status to **Delivered**
+- Records delivery date
+- Marks shipment as complete
+- Logs in activity history
+</Info>
+
+---
+
+## Status Change History
+
+Every status change is logged in the Shipping tab and Activity tab.
+
+### History Display
+
+| Column | Description |
+|--------|-------------|
+| Date/Time | When status changed |
+| Previous Status | Status before change |
+| New Status | Status after change |
+| Changed By | User who made the change |
+| Notes | Any notes added |
+
+### Viewing History
+
+**Location:** Shipment Detail → Shipping tab (bottom section)
+
+Or: Shipment Detail → Activity tab (full history)
+
+---
+
+## Carriers Reference
+
+Common carriers by transport method:
+
+### Air Freight
+
+| Carrier | Tracking URL |
+|---------|--------------|
+| DHL | www.dhl.com |
+| FedEx | www.fedex.com |
+| UPS | www.ups.com |
+| Emirates SkyCargo | skycargo.com |
+
+### Sea Freight
+
+| Carrier | Tracking URL |
+|---------|--------------|
+| Maersk | www.maersk.com |
+| MSC | www.msc.com |
+| CMA CGM | www.cma-cgm.com |
+| Hapag-Lloyd | www.hapag-lloyd.com |
+
+### Courier
+
+| Carrier | Tracking URL |
+|---------|--------------|
+| DHL Express | www.dhl.com |
+| FedEx Express | www.fedex.com |
+| UPS Express | www.ups.com |
+| TNT | www.tnt.com |
+
+---
+
+## Updating Tracking
+
+If tracking information changes (e.g., new tracking number from carrier):
+
+<Steps>
+  <Step title="Go to Shipping tab">
+    Shipment Detail → Shipping
+  </Step>
+  <Step title="Edit tracking fields">
+    Update carrier or tracking number
+  </Step>
+  <Step title="Save">
+    Changes saved
+  </Step>
+</Steps>
+
+<Warning>
+Tracking updates are only possible while shipment is in Shipped status. Once Delivered, tracking is locked.
+</Warning>
+
+---
+
+## Common Scenarios
+
+| Situation | Action |
+|-----------|--------|
+| Shipment leaving today | Mark Shipped → Enter tracking details |
+| Received tracking from carrier | Shipping tab → Enter tracking number |
+| Customer confirmed receipt | Mark Delivered → Enter arrival date |
+| Tracking number changed | Shipping tab → Update tracking number |
+| Need to check shipment history | Activity tab or Shipping tab history |
+| Wrong carrier entered | Shipping tab → Edit → Update carrier |
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Can't mark as shipped">
+    **Cause:** Shipment not in Ready to Ship status.
+
+    **Solution:**
+    1. Check current status
+    2. Change status to Ready to Ship first
+    3. Ensure all documents are generated
+  </Accordion>
+
+  <Accordion title="Mark Delivered button not showing">
+    **Cause:** Shipment not in Shipped status.
+
+    **Solution:** Mark as Shipped first, then Mark Delivered becomes available.
+  </Accordion>
+
+  <Accordion title="Can't edit tracking after delivery">
+    **Cause:** Shipment is in Delivered status (locked).
+
+    **Solution:** Contact admin if tracking correction is needed on delivered shipment.
+  </Accordion>
+
+  <Accordion title="Status changed by mistake">
+    **Cause:** Clicked wrong button.
+
+    **Solution:** Contact admin to revert status if needed. Status changes are logged and may need admin intervention to undo.
+  </Accordion>
+
+  <Accordion title="Tracking number not saving">
+    **Cause:** Field validation error or network issue.
+
+    **Solution:**
+    1. Check tracking number format
+    2. Ensure no special characters
+    3. Try refreshing page and re-entering
+  </Accordion>
+
+  <Accordion title="Expected arrival passed but not delivered">
+    **Cause:** Shipment delayed in transit.
+
+    **Solution:**
+    1. Check tracking with carrier
+    2. Update expected arrival date if known
+    3. Contact carrier for status update
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Related Guides
+
+<CardGroup cols={2}>
+  <Card title="Shipment Detail" icon="rectangle-list" href="/exports/shipment-detail">
+    Full page reference
+  </Card>
+  <Card title="Complete Workflow" icon="route" href="/exports/complete-workflow">
+    End-to-end shipment process
+  </Card>
+  <Card title="Documents" icon="file-pdf" href="/exports/documents">
+    Export document management
+  </Card>
+</CardGroup>

@@ -67,10 +67,10 @@
       "group": "Exports",
       "pages": [
         "exports/overview",
-        "exports/complete-guide",
+        "exports/shipment-detail",
+        "exports/complete-workflow",
         "exports/carton-planning",
         "exports/documents",
-        "exports/landed-costs",
         "exports/shipping"
       ]
     },
