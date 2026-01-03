@@ -90,8 +90,6 @@
       "pages": [
         "customers/overview",
         "customers/boohoo",
-        "customers/asos",
-        "customers/next",
         "customers/generic"
       ]
     },
