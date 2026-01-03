@@ -1,0 +1,81 @@
+---
+title: Creating Samples
+description: How to create a new sample in Sample Flow Nexus
+icon: plus
+---
+
+# Creating a New Sample
+
+When a customer requests a new product or you're developing a new design, create a sample to track its development from concept to approval.
+
+## Steps to Create
+
+<Steps>
+  <Step title="Go to Samples">
+    Navigate to **Samples** from the main menu.
+  </Step>
+  <Step title="Click New Sample">
+    Click the **New Sample** button in the top right corner.
+  </Step>
+  <Step title="Fill in the details">
+    Enter the sample information:
+    - **Sample Code** - Unique identifier for this sample
+    - **Customer** - Select the customer requesting the sample
+    - **Description** - Brief description of the product
+    - **Quantity** - Number of sample units to produce
+  </Step>
+  <Step title="Save">
+    Click **Save** to create the sample.
+  </Step>
+</Steps>
+
+<Info>
+**What happens next?**
+
+When you save a new sample, the system automatically creates three material entries:
+- **Leather** - Main outer material
+- **Accessories** - Hardware, zips, buckles, etc.
+- **Lining** - Interior material
+
+Each starts with status "Not Ordered" and can be tracked independently.
+</Info>
+
+## Required Fields
+
+| Field | Description | Example |
+|-------|-------------|---------|
+| Sample Code | Unique identifier | `BOO-BAG-001` |
+| Customer | Who requested this sample | Boohoo |
+| Description | What the product is | Black crossbody bag |
+| Quantity | How many to make | 2 |
+
+## Optional Fields
+
+| Field | Description |
+|-------|-------------|
+| Style Number | Customer's style reference |
+| Season | Target season (SS25, AW25, etc.) |
+| Notes | Internal comments |
+| Stitcher Rate | Labor rate for stitching (PKR) |
+| Fuser Rate | Labor rate for fusing (PKR) |
+
+<Tip>
+**Naming Convention**
+
+Use a consistent format for sample codes: `CUSTOMER-STYLE-VERSION`
+
+Examples:
+- `BOO-TOTE-001` - First Boohoo tote sample
+- `ASOS-BELT-003` - Third revision of ASOS belt
+- `NEXT-WAL-002` - Second Next wallet version
+
+This makes samples easy to find and track across revisions.
+</Tip>
+
+## What's Next?
+
+After creating a sample:
+
+1. [Update material statuses](/samples/material-workflow) as you order from suppliers
+2. [Upload files](/samples/uploading-files) like worksheets and images
+3. [Track costs](/samples/landed-costs) in the Landed Cost section

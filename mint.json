@@ -1,0 +1,119 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "MacLeather Co. Docs",
+  "logo": {
+    "dark": "/images/logo-dark.svg",
+    "light": "/images/logo-light.svg"
+  },
+  "favicon": "/images/favicon.svg",
+  "colors": {
+    "primary": "#1a1a2e",
+    "light": "#3b82f6",
+    "dark": "#1e40af"
+  },
+  "topbarLinks": [
+    {
+      "name": "Open App",
+      "url": "https://app.macleather.co.uk"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Dashboard",
+    "url": "https://app.macleather.co.uk"
+  },
+  "tabs": [
+    {
+      "name": "Guides",
+      "url": "/"
+    },
+    {
+      "name": "Customers",
+      "url": "customers"
+    },
+    {
+      "name": "Templates",
+      "url": "templates"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": ["introduction", "quickstart"]
+    },
+    {
+      "group": "Samples",
+      "pages": [
+        "samples/overview",
+        "samples/creating-samples",
+        "samples/material-workflow",
+        "samples/uploading-files",
+        "samples/landed-costs",
+        "samples/sample-to-production"
+      ]
+    },
+    {
+      "group": "Production",
+      "pages": [
+        "production/overview",
+        "production/creating-orders",
+        "production/job-cards",
+        "production/qr-scanning",
+        "production/worker-assignment",
+        "production/rate-management"
+      ]
+    },
+    {
+      "group": "Exports",
+      "pages": [
+        "exports/overview",
+        "exports/complete-guide",
+        "exports/carton-planning",
+        "exports/documents",
+        "exports/landed-costs",
+        "exports/shipping"
+      ]
+    },
+    {
+      "group": "Procurement",
+      "pages": [
+        "procurement/purchase-orders",
+        "procurement/approval-workflow",
+        "procurement/suppliers"
+      ]
+    },
+    {
+      "group": "Customers",
+      "pages": [
+        "customers/overview",
+        "customers/boohoo",
+        "customers/asos",
+        "customers/next",
+        "customers/generic"
+      ]
+    },
+    {
+      "group": "Templates",
+      "pages": [
+        "templates/overview",
+        "templates/export-documents",
+        "templates/labels",
+        "templates/forms"
+      ]
+    },
+    {
+      "group": "Reference",
+      "pages": [
+        "reference/status-workflows",
+        "reference/glossary",
+        "reference/keyboard-shortcuts"
+      ]
+    }
+  ],
+  "feedback": {
+    "thumbsRating": true,
+    "suggestEdit": true
+  },
+  "footerSocials": {
+    "website": "https://app.macleather.co.uk"
+  }
+}

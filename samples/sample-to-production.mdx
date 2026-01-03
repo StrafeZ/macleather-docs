@@ -1,0 +1,104 @@
+---
+title: Sample to Production
+description: Convert an approved sample into a production order
+icon: arrow-right-to-bracket
+---
+
+# Converting Sample to Production
+
+Once a customer approves a sample, convert it to a production order to begin manufacturing at scale.
+
+## When to Convert
+
+Convert a sample when:
+
+- Customer has approved the sample
+- Materials have been verified and sourced
+- Pricing has been confirmed
+- You're ready to commit to production quantities
+
+<Warning>
+**Prerequisites**
+
+Before converting, all three materials (Leather, Accessories, Lining) must be in **Approved** status. The conversion button won't appear until this requirement is met.
+</Warning>
+
+## Conversion Steps
+
+<Steps>
+  <Step title="Open the approved sample">
+    Go to **Samples** and open the sample you want to convert. Verify it shows all materials as Approved.
+  </Step>
+  <Step title="Click Convert to Production">
+    Find the **Convert to Production** button in the sample header or actions menu.
+  </Step>
+  <Step title="Enter production details">
+    Fill in the production order information:
+    - **Production Quantity** – How many units to manufacture
+    - **Delivery Date** – Customer's required date
+    - **PO Number** – Customer's purchase order reference
+  </Step>
+  <Step title="Confirm conversion">
+    Review the details and click **Confirm**. The production order is created immediately.
+  </Step>
+</Steps>
+
+## What Carries Over
+
+The following data transfers from sample to production order:
+
+| Data | Notes |
+|------|-------|
+| Sample details | Description, style, customer |
+| Material specs | All three material configurations |
+| Labor rates | Stitcher rate and fuser rate |
+| Files | Worksheets, images, and documents |
+| Landed cost data | Base pricing information |
+
+<Info>
+You don't need to re-enter material specifications or rates. Everything from the approved sample flows into the production order.
+</Info>
+
+## What You'll Set New
+
+Some details are specific to the production order:
+
+- Production quantity (usually higher than sample quantity)
+- Delivery date
+- Customer PO number
+- Size breakdown (if applicable)
+- Color variants (if applicable)
+
+## What Happens to the Sample
+
+After conversion:
+
+| Sample Change | Description |
+|---------------|-------------|
+| Status | Marked as **Converted** |
+| Link | Shows link to the new production order |
+| Editable | Sample becomes read-only |
+| Visibility | Remains in system for reference |
+
+The sample isn't deleted—it stays in your records as the source of the production order. You can always refer back to it.
+
+<Tip>
+Keep samples as a historical record. If you need to make a revised sample later, create a new one (e.g., `BOO-TOTE-002`) rather than editing the converted sample.
+</Tip>
+
+## After Conversion
+
+Once converted, head to the production order to:
+
+1. [Create job cards](/production/job-cards) for factory floor tracking
+2. [Assign workers](/production/worker-assignment) to tasks
+3. [Manage rates](/production/rate-management) if adjustments are needed
+
+<CardGroup cols={2}>
+  <Card title="Production Overview" icon="industry" href="/production/overview">
+    Learn about the production module
+  </Card>
+  <Card title="Creating Orders" icon="plus" href="/production/creating-orders">
+    More on production order setup
+  </Card>
+</CardGroup>

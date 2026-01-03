@@ -1,0 +1,105 @@
+---
+title: Uploading Files
+description: Manage documents, images, and files for samples
+icon: upload
+---
+
+# Uploading Files
+
+Keep all sample documentation organized in one place. Upload worksheets, images, comments, and purchase orders directly to each sample.
+
+## File Categories
+
+<CardGroup cols={2}>
+  <Card title="Worksheets" icon="file-lines">
+    Tech packs, specifications, cutting patterns, and production instructions.
+  </Card>
+  <Card title="Images" icon="image">
+    Product photos, design renders, material swatches, and reference images.
+  </Card>
+  <Card title="Comments" icon="comments">
+    Customer feedback, revision notes, and internal comments.
+  </Card>
+  <Card title="Purchase Orders" icon="file-invoice">
+    Supplier POs for materials and components.
+  </Card>
+</CardGroup>
+
+## How to Upload
+
+<Steps>
+  <Step title="Open the sample">
+    Navigate to **Samples** and select the sample you want to add files to.
+  </Step>
+  <Step title="Go to Files">
+    Click the **Files** tab in the sample detail view.
+  </Step>
+  <Step title="Select category">
+    Choose the appropriate category: Worksheets, Images, Comments, or Purchase Orders.
+  </Step>
+  <Step title="Upload file">
+    Click **Upload** and select your file. Add a description if needed.
+  </Step>
+</Steps>
+
+## File Versioning
+
+When you upload a new version of an existing file, the system tracks versions automatically.
+
+| Flag | Meaning |
+|------|---------|
+| **Latest** | This is the current version |
+| **Previous** | An older version, kept for reference |
+
+<Info>
+Only the **Latest** version is shown by default. Toggle "Show all versions" to see the full history.
+</Info>
+
+### Uploading a New Version
+
+1. Go to the file you want to update
+2. Click **Upload New Version**
+3. Select the updated file
+4. The new file becomes the **Latest** version
+
+The previous version is archived automatically—nothing is deleted.
+
+## Supported File Types
+
+| Category | Common formats |
+|----------|----------------|
+| Worksheets | PDF, XLSX, XLS, DOCX, DOC |
+| Images | PNG, JPG, JPEG, WEBP, GIF |
+| Comments | PDF, DOCX, TXT |
+| Purchase Orders | PDF, XLSX |
+
+<Warning>
+Maximum file size is **25MB**. For larger files, consider compressing or splitting them.
+</Warning>
+
+## Auto PO Detection
+
+<Tip>
+**Smart PO Upload**
+
+When you upload a file to the **Purchase Orders** category, the system can automatically detect and link it to the relevant material based on the supplier name or PO number in the filename.
+
+For example: `Leather_PO_12345.pdf` will suggest linking to the Leather material.
+</Tip>
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Use clear file names">
+    Name files descriptively: `BOO-TOTE-001_TechPack_v2.pdf` is better than `Document1.pdf`
+  </Accordion>
+  <Accordion title="Keep versions organized">
+    Always use the version upload feature rather than uploading separate files like `file_v1`, `file_v2`, `file_final`.
+  </Accordion>
+  <Accordion title="Add descriptions">
+    Include a brief description when uploading. Future you will thank present you.
+  </Accordion>
+  <Accordion title="Use the right category">
+    Don't put everything in "Comments". Use the correct category so files are easy to find.
+  </Accordion>
+</AccordionGroup>

@@ -1,0 +1,112 @@
+---
+title: Sample Landed Costs
+description: Calculate the true cost of producing a sample
+icon: calculator
+---
+
+# Sample Landed Costs
+
+The Landed Cost module calculates the total cost to produce a sample, including materials, labor, and any additional expenses.
+
+<Note>
+**Where to find it**
+
+Open any sample and look for the **Landed Cost** card on the sample detail page.
+</Note>
+
+## Cost Components
+
+<AccordionGroup>
+  <Accordion title="Materials Cost">
+    Automatically calculated from your three material entries:
+
+    - **Leather** cost
+    - **Accessories** cost
+    - **Lining** cost
+
+    Enter the cost for each material in its detail section. The total updates automatically.
+  </Accordion>
+  <Accordion title="Labor Costs">
+    Based on the rates you set on the sample:
+
+    - **Stitcher Rate** × Quantity = Stitching cost
+    - **Fuser Rate** × Quantity = Fusing cost
+
+    For example: If stitcher rate is PKR 150 and quantity is 2, stitching cost = PKR 300.
+  </Accordion>
+  <Accordion title="Additional Costs">
+    Optional extras you can add manually:
+
+    - Packaging
+    - Special finishing
+    - Testing fees
+    - Any other costs
+
+    Click **Add Cost** to include additional line items.
+  </Accordion>
+</AccordionGroup>
+
+## Currency Display
+
+Costs are shown in both currencies:
+
+| Currency | Use |
+|----------|-----|
+| **PKR** | Local production costs, labor rates |
+| **GBP** | Customer pricing, export invoicing |
+
+<Info>
+Exchange rates update automatically. The current rate is shown at the top of the Landed Cost card.
+</Info>
+
+## Per-Unit Cost
+
+The system calculates the cost per unit:
+
+```
+Per-Unit Cost = Total Cost ÷ Quantity
+```
+
+This helps when quoting to customers or comparing sample costs across different products.
+
+## FOB vs CIF
+
+For samples, you'll typically work with:
+
+| Term | Meaning |
+|------|---------|
+| **FOB** | Free On Board – cost to get the sample ready for shipping |
+| **CIF** | Cost, Insurance & Freight – includes shipping to customer |
+
+Most sample quotes are FOB. Full CIF calculations with freight, insurance, and duties are handled in the [Export Landed Costs](/exports/landed-costs) module for production orders.
+
+## Labor Rates and Production
+
+When you [convert a sample to production](/samples/sample-to-production), the stitcher and fuser rates carry over to the production order.
+
+These rates then apply to job cards, determining worker pay for each unit produced.
+
+<Tip>
+Set accurate rates at the sample stage. It's easier to adjust now than after production has started.
+</Tip>
+
+## Example Breakdown
+
+| Component | PKR | GBP |
+|-----------|-----|-----|
+| Leather | 2,500 | £7.14 |
+| Accessories | 800 | £2.29 |
+| Lining | 400 | £1.14 |
+| **Materials Total** | **3,700** | **£10.57** |
+| Stitching (150 × 2) | 300 | £0.86 |
+| Fusing (50 × 2) | 100 | £0.29 |
+| **Labor Total** | **400** | **£1.14** |
+| Packaging | 200 | £0.57 |
+| **Grand Total** | **4,300** | **£12.29** |
+| **Per Unit (÷2)** | **2,150** | **£6.14** |
+
+## Related
+
+<Card title="Export Landed Costs" icon="ship" href="/exports/landed-costs">
+  Full costing for production orders including freight, duties, and export expenses
+</Card>
