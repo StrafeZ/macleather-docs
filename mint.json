@@ -71,6 +71,7 @@
         "exports/complete-workflow",
         "exports/carton-planning",
         "exports/documents",
+        "exports/barcodes",
         "exports/shipping"
       ]
     },
