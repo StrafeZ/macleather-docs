@@ -44,6 +44,7 @@
       "group": "Samples",
       "pages": [
         "samples/overview",
+        "samples/sample-types",
         "samples/complete-workflow",
         "samples/creating-samples",
         "samples/material-workflow",
