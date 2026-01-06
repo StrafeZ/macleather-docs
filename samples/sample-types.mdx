@@ -1,218 +1,148 @@
 ---
-title: "Sample Types Guide"
-description: "Understanding the differences between Approval, Production, and Shipment samples"
+title: "Sample Types"
+description: "Learn the 3 types of samples: Approval, Production, and Shipment"
 icon: "tags"
 ---
 
-# Understanding Sample Types
+# 3 Types of Samples
 
-In leather goods manufacturing, samples serve as critical checkpoints throughout the product lifecycle. Understanding when and why to use each sample type ensures quality, buyer confidence, and smooth production flow.
-
-<Info>
-On average, brands go through 5-7 rounds of sampling before final production. Each sample type serves a distinct purpose in quality assurance.
-</Info>
-
----
-
-## Why Samples Matter
-
-Samples are more than just prototypes - they're quality gates that protect both manufacturer and buyer:
-
-- **Risk Reduction**: Catch issues before committing to bulk production
-- **Cost Control**: Fixing problems at sample stage costs a fraction of fixing them in production
-- **Buyer Confidence**: Documented approval trail for compliance and dispute resolution
-- **Quality Assurance**: Multiple checkpoints ensure consistency from design to delivery
-
----
-
-## The Three Sample Types
+Before we ship goods, we send **3 different samples** to the customer. Each sample has a different job.
 
 ```mermaid
 flowchart LR
-    A[Approval Sample] --> B[Production Sample]
-    B --> C[Shipment Sample]
-
-    A -.-> |"Customer sign-off"| B
-    B -.-> |"Production verified"| C
-    C -.-> |"Ready to ship"| D[Delivery]
+    A[1. Approval Sample] --> B[2. Production Sample]
+    B --> C[3. Shipment Sample]
+    C --> D[Ship Goods]
 ```
 
 ---
 
-## Approval Sample
+## 1. Approval Sample
 
-The **Approval Sample** (also called development sample or proto sample) is the initial prototype sent to the customer for sign-off before production begins.
+<Card title="What is it?" icon="circle-question">
+The **first sample** you make. Send it to the customer. They check if they like the design.
+</Card>
 
-### Purpose
+### When to make it
+- **Before** production starts
+- When you have a new design
+- When customer asks for something new
 
-- Customer evaluates design, fit, materials, and construction
-- Provides documented approval before committing to bulk production
-- Establishes the benchmark for all future production
+### What customer checks
+- Design looks correct
+- Materials are good
+- Size and fit is right
+- Colour matches
 
-### When to Create
-
-Create an approval sample during the **development phase**, before any production order exists. This is your first checkpoint with the buyer.
-
-### In Mac Leather Dashboard
-
-<Steps>
-  <Step title="Create in Samples section">
-    Navigate to **Samples** and create a new sample record
-  </Step>
-  <Step title="Track materials through procurement">
-    Order and track leather, accessories, and lining materials
-  </Step>
-  <Step title="Ship for approval">
-    When ready, create an export shipment with category **Approval Sample**
-  </Step>
-  <Step title="Label automatically set">
-    Sample labels default to "APPROVAL SAMPLE" in the comments field
-  </Step>
-</Steps>
+### In the system
+1. Go to **Samples**
+2. Create new sample
+3. Label says **"APPROVAL SAMPLE"**
 
 <Warning>
-Production cannot begin until the approval sample is signed off by the customer. Never skip this step.
+**Important:** Do NOT start production until customer approves this sample!
 </Warning>
 
 ---
 
-## Production Sample (PP Sample)
+## 2. Production Sample
 
-The **Production Sample** (Pre-Production sample) is the first sample made on the actual production line using final materials and processes.
+<Card title="What is it?" icon="circle-question">
+A sample from the **production line**. Shows customer that factory is making goods correctly.
+</Card>
 
-### Purpose
+### When to make it
+- **After** customer approves the first sample
+- **After** you create a production order
+- When production starts
 
-- Verify the factory can replicate the approved sample at scale
-- Test production line setup before bulk manufacturing
-- Final quality check using actual production materials and workers
+### What customer checks
+- Production quality is same as approval sample
+- No defects
+- Stitching is correct
+- Materials match
 
-### When to Create
-
-Create a production sample **after the production order is created**, during the manufacturing ramp-up phase. This is the factory's "test run."
-
-### In Mac Leather Dashboard
-
-<Steps>
-  <Step title="Convert approved sample to production order">
-    Use **Move to Production** from an approved sample, or create a standalone production order
-  </Step>
-  <Step title="Pull sample from production line">
-    During initial production, select units for quality review
-  </Step>
-  <Step title="Ship for verification">
-    Create an export shipment with category **Production Sample**
-  </Step>
-  <Step title="Label reflects production source">
-    Production order labels default to "PRODUCTION SAMPLE" in the comments field
-  </Step>
-</Steps>
+### In the system
+1. Go to **Production Orders**
+2. Label says **"PRODUCTION SAMPLE"**
 
 <Tip>
-If the buyer rejects the production sample, you can identify and fix issues before the full batch is completed - saving significant rework costs.
+This is like a "test" - if there is a problem, fix it before making all the goods.
 </Tip>
 
 ---
 
-## Shipment Sample
+## 3. Shipment Sample
 
-The **Shipment Sample** is selected from the completed production batch before dispatch, serving as final verification that quality has been maintained throughout production.
+<Card title="What is it?" icon="circle-question">
+A sample from the **finished goods**. Pick from the boxes before shipping. Shows customer the final quality.
+</Card>
 
-### Purpose
+### When to make it
+- **After** production is complete
+- **Before** you ship the goods
+- Pick from finished boxes
 
-- Final quality check on finished goods
-- Verify packing, folding, and finishing details
-- Provide buyer assurance that the shipment matches expectations
-- Create reference copies for future dispute resolution
+### What customer checks
+- Final quality is good
+- Packing is correct
+- Labels are correct
+- Ready to sell
 
-### When to Create
-
-Create a shipment sample **after production is complete**, before shipping approval is given. This is the last checkpoint before goods leave the factory.
-
-### In Mac Leather Dashboard
-
-<Steps>
-  <Step title="Select from completed batch">
-    Pick representative units from the finished production run
-  </Step>
-  <Step title="Create export shipment">
-    Set the shipment category to **Shipment Sample**
-  </Step>
-  <Step title="Retain factory copies">
-    Keep 2-3 samples at the factory for reference in case of customer complaints
-  </Step>
-</Steps>
+### In the system
+1. Go to **Exports**
+2. Select **Shipment Sample** category
 
 <Note>
-Many buyers require shipment sample approval before authorising the full shipment. The factory typically retains copies for future reference if any quality disputes arise.
+**Keep 3 copies at factory** - 1 for customer, 1 for office, 1 for if there is any problem later.
 </Note>
 
 ---
 
-## Comparison Table
+## Quick Reference
 
-| Aspect | Approval Sample | Production Sample | Shipment Sample |
-|--------|-----------------|-------------------|-----------------|
-| **Stage** | Development | Manufacturing | Pre-dispatch |
-| **Purpose** | Get customer sign-off | Verify production quality | Final QC before shipping |
-| **Created from** | Sample record | Production Order | Completed batch |
-| **Who reviews** | Buyer/Brand | Factory QC + Buyer | Buyer (final check) |
-| **Label default** | "APPROVAL SAMPLE" | "PRODUCTION SAMPLE" | — |
-| **System location** | Samples section | Production Orders | Export shipment category |
+| Sample Type | When | Why |
+|-------------|------|-----|
+| **Approval** | Before production | Customer says "yes, make it" |
+| **Production** | During production | Check factory is making correctly |
+| **Shipment** | Before shipping | Final check before sending |
 
 ---
 
-## Troubleshooting
+## Common Questions
 
 <AccordionGroup>
-  <Accordion title="When should I create each sample type?">
-    **Approval Sample**: As soon as you have materials and specifications ready for a new product development.
+  <Accordion title="Customer rejected production sample - what to do?">
+    1. Find the problem
+    2. Fix it
+    3. Make new sample
+    4. Send again
+    5. Wait for approval
 
-    **Production Sample**: After the customer approves the design and you've created a production order.
-
-    **Shipment Sample**: After bulk production is complete, before shipping.
+    **Do NOT continue production until approved.**
   </Accordion>
 
-  <Accordion title="What if the buyer rejects the production sample?">
-    1. Document the rejection reason in the production order notes
-    2. Make necessary adjustments to production process
-    3. Create a new production sample for re-approval
-    4. Do not proceed with bulk production until approved
-
-    The production sample stage exists specifically to catch these issues early.
+  <Accordion title="How many shipment samples to keep?">
+    Keep **3 samples**:
+    - 1 for customer
+    - 1 for factory office
+    - 1 for backup (if customer complains later)
   </Accordion>
 
-  <Accordion title="How many shipment samples should we keep?">
-    Industry standard is to retain **3 copies**:
-    - 1 for the buyer
-    - 1 for the factory records
-    - 1 for future reference/disputes
-
-    Store factory copies in a clean, dry location with proper labelling.
-  </Accordion>
-
-  <Accordion title="Can I skip the production sample stage?">
-    Not recommended. While some repeat orders with established suppliers may reduce sampling, skipping the production sample increases risk of:
-    - Production defects going undetected
-    - Costly rework on completed batches
-    - Customer disputes and returns
+  <Accordion title="Can I skip production sample?">
+    **No.** Always make production sample. If you skip, you may have big problems later.
   </Accordion>
 </AccordionGroup>
 
 ---
 
-## Related Guides
+## Related Pages
 
 <CardGroup cols={2}>
   <Card title="Creating Samples" icon="plus" href="/samples/creating-samples">
-    Step-by-step guide to create a new approval sample
+    How to make a new sample
   </Card>
-  <Card title="Sample to Production" icon="arrow-right-to-bracket" href="/samples/sample-to-production">
-    Convert approved samples to production orders
-  </Card>
-  <Card title="Export Shipments" icon="truck" href="/exports/overview">
-    Create and manage shipments with sample categories
-  </Card>
-  <Card title="Complete Workflow" icon="diagram-project" href="/samples/complete-workflow">
-    End-to-end sample lifecycle walkthrough
+  <Card title="Sample to Production" icon="arrow-right" href="/samples/sample-to-production">
+    Move sample to production order
   </Card>
 </CardGroup>
