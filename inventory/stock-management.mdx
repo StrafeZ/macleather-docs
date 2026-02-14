@@ -1,0 +1,66 @@
+---
+title: Stock Management
+description: How to consume, restock, and adjust inventory levels.
+---
+
+# Stock Management
+
+## Stock Actions
+
+From any item's detail page, you can perform three stock actions:
+
+### Consume
+Reduces stock when items are used. Select a reason:
+
+- **Sample** — Used in a sample (links to sample)
+- **Production** — Used in production (links to production order)
+- **Office** — Used in office/admin
+- **General Factory** — General factory use
+- **Damaged** — Item was damaged
+- **Other** — Anything else (add a note)
+
+### Restock
+Increases stock when new items arrive. Typically used when:
+- Purchase order goods are received
+- Items are returned to stock
+- Initial stock count correction
+
+### Adjust
+Sets stock to an exact number. Used for:
+- **Physical count** — After doing a physical stock count
+- **Correction** — Fixing a data entry error
+- **Other** — Any other reason
+
+<Warning>
+  All stock adjustments require a reason. This keeps the transaction history clean and auditable.
+</Warning>
+
+## Transaction History
+
+Every stock change is automatically logged. View the full history on the **Transactions** tab of any item.
+
+Each transaction records:
+- **Date and time** of the change
+- **Type** — Consumed, Restocked, or Adjusted
+- **Quantity change** — How much was added or removed
+- **New quantity** — Stock level after the change
+- **Who** made the change
+- **Reason/Note** — Why the change was made
+- **Linked order** — Production order or sample (if applicable)
+
+## Low Stock Alerts
+
+When an item's stock drops below its **minimum level**, it is flagged:
+- An **amber "Low" badge** appears on the item card
+- The system can send notifications (configurable)
+
+### Setting Minimum Levels
+
+Each item has a **Min Stock Level** field. Set this based on how quickly you use the item:
+- Fast-moving items (common buttons, zippers): set higher (e.g., 25-50)
+- Slow-moving items (special accessories): set lower (e.g., 5-10)
+- Items you don't stock regularly: set to 0
+
+## Stock Safety
+
+The system prevents negative stock — you cannot consume more than what's available. All stock operations are **atomic** (guaranteed to be accurate even if multiple people update at the same time).

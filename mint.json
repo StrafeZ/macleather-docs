@@ -77,6 +77,17 @@
       ]
     },
     {
+      "group": "Inventory",
+      "pages": [
+        "inventory/overview",
+        "inventory/browsing",
+        "inventory/stock-management",
+        "inventory/adding-items",
+        "inventory/item-codes",
+        "inventory/admin-guide"
+      ]
+    },
+    {
       "group": "Procurement",
       "pages": [
         "procurement/overview",

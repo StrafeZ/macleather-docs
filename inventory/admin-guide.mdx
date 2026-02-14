@@ -1,0 +1,84 @@
+---
+title: Admin Guide
+description: Administrative tasks for managing the product catalog system.
+---
+
+# Admin Guide
+
+This page covers administrative tasks that are typically handled by supervisors or the office team.
+
+## Category Structure
+
+The catalog follows a four-level hierarchy imported from Sortly:
+
+```
+Primary Folder → Category → Subcategory → Variant
+```
+
+**Primary Folders** are the top level:
+- ACCESSORIES — All manufacturing accessories
+- HANGTAGS & PACKAGING — Customer hang tags, polybags, packing materials
+- LABELS & TAGS — MARDI branded items
+- LINING & INTERLINING — Satin lining fabrics
+
+**Categories** are the product types within each folder (e.g., Buttons, Zippers, Rivets).
+
+**Subcategories** further divide categories (e.g., Hard Buttons, 4-Part Buttons).
+
+**Variants** are colour or size groups (e.g., Gun Metal, Matt Silver, Small 7"-12").
+
+## Specification Fields
+
+Each category/subcategory has its own specification fields. These fields appear automatically when you select a category in the product form.
+
+### How Specs Work
+- Specs are stored as flexible data on each item
+- Different subcategories show different fields (e.g., Hard Buttons show "L Size" and "Style", but 4-Part Buttons show "Model" and "Shape")
+- Select fields offer dropdown suggestions but also accept free text for new values
+
+### Key Spec Fields by Category
+
+**Buttons > Hard Buttons**: L Size (18L-40L), Size in mm, Colour, Style (Plane/With Ring/2-Hole)
+
+**Buttons > 4-Part Buttons**: Model (80/50, VT 8, VT5), Shape (Round/Flat), Colour
+
+**Zippers**: Item Type (Full Zipper/Slider/Puller/Stopper), Zip Number (#3-#10), Size in inches, Tape Colour, Teeth Colour, Slider Type
+
+**Rivets**: Type (Ball/Flat/Spiral Cone/Crystal), Size in mm, Colour, Part (Front/Back)
+
+## Stock Management Best Practices
+
+### Setting Min Stock Levels
+- Review min levels monthly based on usage patterns
+- High-usage items (common buttons, black zippers): 25-50 units
+- Medium-usage items: 10-25 units
+- Low-usage or customer-specific items: 5 or 0
+
+### Transaction Auditing
+Every stock change is logged with who, when, why, and how much. Check the Transactions tab on any item to review changes.
+
+### Data Quality
+- Item names should follow the pattern: `[Type] - [Size] - [Colour] - [Detail]`
+- Categories and subcategories are standardized in Title Case
+- Avoid creating duplicate items — search first before adding
+
+## Internal Code System
+
+The Part # system automatically assigns codes when items are created:
+- Format: `{PREFIX}-{NUMBER}` (e.g., BTN-0042)
+- Codes are permanent and cannot be changed
+- New items get the next available number in their category
+- Codes are unique across the entire catalog
+
+## Upcoming Features
+
+Features that are planned but not yet available:
+
+| Feature | Status | Description |
+|---------|--------|-------------|
+| Multi-Part Sets | Planned | Group front/back rivet parts into logical sets |
+| Purchase Orders | Planned | Create POs directly in the system with WhatsApp approval |
+| Bin Labels | Planned | Print labels with QR codes for storage locations |
+| Mobile Scanning | Planned | Scan QR codes on Samsung tablets for quick stock updates |
+| Auto-Consumption | Planned | Automatically reduce stock when production orders use materials |
+| Low Stock Alerts | Planned | WhatsApp notifications when items go below minimum levels |

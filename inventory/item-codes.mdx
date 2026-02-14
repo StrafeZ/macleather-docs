@@ -1,0 +1,64 @@
+---
+title: Item Codes & Identification
+description: Understanding Sortly SIDs and internal Part Numbers.
+---
+
+# Item Codes
+
+Every item in the catalog has two identification codes. Both appear on the item detail page as read-only fields with a copy button.
+
+## Sortly SID
+
+The **Sortly SID** (e.g., `SLUEDT0156`) is the original identifier from the Sortly inventory system.
+
+- Format: `SLUEDT` followed by a 4-digit number
+- These were imported when the catalog was created
+- Used during the transition period from Sortly
+- Read-only — cannot be changed
+
+## Part Number (Internal Code)
+
+The **Part #** (e.g., `BTN-0001`) is the permanent internal code assigned by the system.
+
+- Format: 3-letter category prefix + 4-digit sequential number
+- Automatically assigned when an item is created
+- Read-only — cannot be changed
+
+### Category Prefixes
+
+| Prefix | Category |
+|--------|----------|
+| BTN | Buttons |
+| ZIP | Zippers |
+| RVT | Rivets |
+| BKL | Buckles |
+| EYL | Eyelet |
+| HNE | Hook & Eyes |
+| DOR | D-Ring's & O-Ring's |
+| SAT | Satin Lining |
+| TAP | Tapes |
+| BRD | Branded |
+| PLB | Polybags |
+| NDL | Needles |
+| STD | Studs |
+| SPC | Special Accessories |
+| CUT | Cutting Equipment |
+| OPM | Other Packing Materials |
+| REF | Refile |
+| GEN | General (fallback) |
+
+### Examples
+
+| Item | Part # |
+|------|--------|
+| 15mm Black Hard Button Plane | BTN-0001 |
+| Zipper - 7" #3 - Black/Matt Silver - DA | ZIP-0001 |
+| Ball Rivet - 8mm - Matt Silver - Front Part | RVT-0001 |
+| Roller Buckle - 5cm - Gun Metal | BKL-0001 |
+
+## Using Codes
+
+- **Copy to clipboard**: Click the copy icon next to either code on the detail page
+- **Search**: You can search by Part # or Sortly SID in the catalog search bar
+- **Labels**: Part # will appear on printed bin labels (future feature)
+- **QR codes**: Will link to the item's detail page using the Part # (future feature)
